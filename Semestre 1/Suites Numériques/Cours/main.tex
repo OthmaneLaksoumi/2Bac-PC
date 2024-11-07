@@ -1,0 +1,723 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[right=0.5cm, left=0.5cm,top=0.5cm,bottom=0.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{forest}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{graphicx}
+\usepackage{array, tasks}
+\usepackage{blindtext}
+\usepackage{fontspec}
+\usepackage{amsmath,amsfonts,amssymb,mathrsfs,amsthm}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage[font={bf}]{caption}
+% \captionsetup[table]{box=colorbox,boxcolor=orange!20}
+\usepackage{float}
+\usepackage{esvect}
+\usepackage{tabularx}
+\usepackage{pifont}
+\usepackage{colortbl}
+ \usepackage{fancybox}
+ \mathversion{bold}
+ \usepackage{pgfplots}
+ % \usepackage[utf8]{inputenc}
+\usepackage{tikz}
+ \usepackage[tikz]{bclogo}%
+ \usepackage{mathpazo}
+\usepackage{ulem}
+\usepackage{yagusylo}
+\usepackage{textcomp}\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{varwidth}
+\usetikzlibrary{calc,intersections}
+\usepackage{pgfplots}
+%\usepackage{fourier}
+\pgfplotsset{compat=1.11}
+\usepackage{tkz-tab}
+\usepackage{xcolor}
+\usepackage{color}
+\usetikzlibrary{calc}
+\mathchardef\times="2202
+\usepackage[most]{tcolorbox}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{ocre}{RGB}{0,244,244} 
+\definecolor{head}{RGB}{255,211,204}
+\definecolor{browndark}{RGB}{105,79,56}
+%\RequirePackage[framemethod=default]{mdframed}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,decorations.pathmorphing,arrows.meta,decorations.markings}
+\usetikzlibrary{arrows.meta}
+\makeatletter
+\tcbuselibrary{skins,breakable,xparse}
+\tcbset{%
+  save height/.code={%
+    \tcbset{breakable}%
+    \providecommand{#1}{2cm}%
+    \def\tcb@split@start{%
+      \tcb@breakat@init%
+      \tcb@comp@h@page%
+      \def\tcb@ch{%
+        \tcbset{height=\tcb@h@page}%
+        \tcbdimto#1{#1+\tcb@h@page-\tcb@natheight}%
+        \immediate\write\@auxout{\string\gdef\string#1{#1}}%
+        \tcb@ch%
+      }%
+      \tcb@drawcolorbox@standalone%
+    }%
+  }%
+}
+\newcommand{\Lim}{\displaystyle\lim}
+\makeatother
+\newcommand{\oij}{$\left( \text{O};\vv{i},\vv{j} , \vv{k}\right)$}
+\colorlet{darkred}{red!30!black}
+\newcommand{\red}[1]{\textcolor{darkred}{ #1}}
+\newcommand{\rr}{\mathbb{R}}
+\renewcommand{\baselinestretch}{1.2}
+ \setlength{\arrayrulewidth}{1.25pt}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{minitoc}
+\usepackage{ulem}
+%--------------------------------------------------------------
+
+\usetikzlibrary{decorations.pathmorphing}
+\tcbuselibrary{skins}
+
+%%%%%%%%%%%
+%-------------------------------------------------------------------------
+\tcbset{
+        enhanced,
+        colback=white,
+        boxrule=0.1pt,
+        colframe=brown!10,
+        fonttitle=\bfseries
+       }
+\definecolor{problemblue}{RGB}{100,134,158}
+\definecolor{idiomsgreen}{RGB}{0,162,0}
+\definecolor{exercisebgblue}{RGB}{192,232,252}
+\definecolor{darkbrown}{rgb}{0.4, 0.26, 0.13}
+
+\newcommand*{\arraycolor}[1]{\protect\leavevmode\color{#1}}
+\newcolumntype{A}{>{\columncolor{blue!50!white}}c}
+\newcolumntype{B}{>{\columncolor{LightGoldenrod}}c}
+\newcolumntype{C}{>{\columncolor{FireBrick!50}}c}
+\newcolumntype{D}{>{\columncolor{Gray!42}}c}
+
+\newcounter{mysection}
+\newcounter{mysubsection}
+\newcommand{\mysection}[1]{%
+    \stepcounter{mysection} % Increment the counter
+    \textcolor{red}{\LARGE\themysection. #1 :}
+}
+\newcommand{\mysubsection}[2]{
+    \stepcounter{mysubsection}
+    \textcolor{red}{\large \themysection.#1. #2 :}
+}
+% \textcolor{red}{\LARGE\bfseries 1. Les équation du deuxiéme degrée :}
+
+%------------------------------------------------------
+\newtcolorbox[auto counter]{Definition}{enhanced,
+before skip=2mm,after skip=2mm,
+colback=yellow!20!white,colframe=lime,boxrule=0.2mm,
+attach boxed title to top left =
+    {xshift=0.6cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=lime]
+                            ([yshift=-1mm,xshift=-1mm]frame.north west)  
+                            arc[start angle=0,end angle=180,radius=1mm]
+                            ([yshift=-1mm,xshift=1mm]frame.north east)
+                            arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=lime,right color = lime,
+                            middle color = lime]
+                            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east) 
+                            -- (frame.south east) -- (frame.south west)
+                            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                            [sharp corners]-- cycle;
+                            },interior engine=empty,
+                    },
+fonttitle=\bfseries\sffamily,
+title={Definition ~\thetcbcounter}}
+%------------------------------------------------------
+\newtcolorbox[auto counter]{Proposition}{enhanced,
+before skip=2mm,after skip=2mm,
+colback=yellow!20!white,colframe=blue,boxrule=0.2mm,
+attach boxed title to top left =
+    {xshift=0.6cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=blue]
+                            ([yshift=-1mm,xshift=-1mm]frame.north west)  
+                            arc[start angle=0,end angle=180,radius=1mm]
+                            ([yshift=-1mm,xshift=1mm]frame.north east)
+                            arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=blue,right color = blue,
+                            middle color = blue]
+                            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east) 
+                            -- (frame.south east) -- (frame.south west)
+                            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                            [sharp corners]-- cycle;
+                            },interior engine=empty,
+                    },
+fonttitle=\bfseries\sffamily,
+title={Proposition ~\thetcbcounter}}
+%------------------------------------------------------
+\newtcolorbox[auto counter]{Thm}[1]{enhanced,
+before skip=2mm,after skip=2mm,
+colback=yellow!20!white,colframe=red,boxrule=0.2mm,
+attach boxed title to top left =
+    {xshift=0.6cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=red]
+                            ([yshift=-1mm,xshift=-1mm]frame.north west)  
+                            arc[start angle=0,end angle=180,radius=1mm]
+                            ([yshift=-1mm,xshift=1mm]frame.north east)
+                            arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=red,right color = red,
+                            middle color = red]
+                            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east) 
+                            -- (frame.south east) -- (frame.south west)
+                            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                            [sharp corners]-- cycle;
+                            },interior engine=empty,
+                    },
+fonttitle=\bfseries\sffamily,
+title={#1 ~\thetcbcounter}}
+%------------------------------------------------------
+\newtcolorbox[auto counter]{exemple}{
+  % breakable,
+  enhanced,
+  colback=white,
+  boxrule=0pt,
+  arc=0pt,
+  outer arc=0pt,
+  title=Exemple ~\thetcbcounter,
+  fonttitle=\bfseries\sffamily\large\strut,
+  coltitle=problemblue,
+  colbacktitle=problemblue,
+  title style={
+left color=exercisebgblue,
+    right color=white,
+    middle color=exercisebgblue  
+  },
+  overlay={
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.south east);
+    \draw[line width=1pt,problemblue] (frame.north west) -- (frame.north east);
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.north west);
+    \draw[line width=1pt,problemblue] (frame.south east) -- (frame.north east);
+  }
+}
+%----------------------------------------------------
+\newtcolorbox[auto counter]{application}{
+  % breakable,
+  enhanced,
+  colback=white,
+  boxrule=0pt,
+  arc=0pt,
+  outer arc=0pt,
+  title=Application ~\thetcbcounter,
+  fonttitle=\bfseries\sffamily\large\strut,
+  coltitle=problemblue,
+  colbacktitle=problemblue,
+  title style={
+left color=exercisebgblue,
+    right color=white,
+    middle color=exercisebgblue  
+  },
+  overlay={
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.south east);
+    \draw[line width=1pt,problemblue] (frame.north west) -- (frame.north east);
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.north west);
+    \draw[line width=1pt,problemblue] (frame.south east) -- (frame.north east);
+  }
+}
+%----------------------------------------------------
+\newtcolorbox[auto counter]{Activite}{
+  % breakable,
+  enhanced,
+  colback=white,
+  boxrule=0pt,
+  arc=0pt,
+  outer arc=0pt,
+  title=Activité ~\thetcbcounter,
+  fonttitle=\bfseries\sffamily\large\strut,
+  coltitle=problemblue,
+  colbacktitle=problemblue,
+  title style={
+left color=yellow!50!white,
+    right color=white,
+    middle color=yellow!20!white  
+  },
+  overlay={
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.south east);
+    \draw[line width=1pt,problemblue] (frame.north west) -- (frame.north east);
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.north west);
+    \draw[line width=1pt,problemblue] (frame.south east) -- (frame.north east);
+  }
+}
+%---------------------------------------------
+\newtcolorbox{mybox}[2]{enhanced,breakable,
+    before skip=2mm,after skip=2mm,
+    colback=white,colframe=#2!30!blue,boxrule=0.3mm,rightrule=0.3mm,
+    attach boxed title to top center={xshift=0cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+    \path[fill=#2!30!black]
+    ([yshift=-1mm,xshift=-1mm]frame.north west)
+    arc[start angle=0,end angle=180,radius=1mm]
+    ([yshift=-1mm,xshift=1mm]frame.north east)
+    arc[start angle=180,end angle=0,radius=1mm];
+    \path[draw=black,line width=1pt,left color=#2!1!white,right color=#2!1!blue!65,
+    middle color=#2!1!green]
+    ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+    [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+    -- (frame.south east) -- (frame.south west)
+    -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+    [sharp corners]-- cycle;
+    },interior engine=empty,
+    },
+title=#1,coltitle=black,fonttitle=\sffamily}
+%---------------------------------------------
+\newtcolorbox{boxone}{%
+    enhanced,
+    colback=brown!10,
+    boxrule=0pt,
+    sharp corners,
+    drop lifted shadow,
+    frame hidden,
+    fontupper=\bfseries,
+    notitle,
+    overlay={%
+        \draw[Circle-Circle, brown!70!black, line width=2pt](frame.north west)--(frame.south west); 
+        \draw[Circle-Circle, brown!70!black, line width=2pt](frame.north east)--(frame.south east);}
+    }
+
+    \tikzset{ midd/.style={
+decoration={
+markings,
+mark=at position 0.5 with {%
+\makebox[4pt][r]{\arrow{triangle 45}},
+},
+},
+postaction={decorate},{Circle[]}-{Circle[]}
+},}%
+
+\def\suite{(u_n)_{n\geq n_0}}
+    
+\begin{document}
+
+\begin{tcolorbox}[title=\textcolor{blue}{\shadowbox{ Prof : Othmane Laksoumi}}
+\hfill
+\textcolor{blue}{\shadowbox{ Les suites numériques }}]
+
+\end{tcolorbox}
+
+\begin{mybox}{Lycée Qualifiant Zitoun}{gray}
+    \begin{minipage}{8cm}
+    \textcolor{darkbrown}{Année scolaire : } 2024-2025 \\
+    \textcolor{darkbrown}{Niveau : } 2 Bac Sciences Physiques \\
+    \textcolor{darkbrown}{Durée totale : } $10h$
+    \end{minipage}
+\end{mybox}
+
+\begin{boxone}
+{\Large\ding{45}}
+\textcolor{red}{\large Contenus du programme :}
+\begin{itemize}
+   \item Limites des suites numériques de référence : $(n)_{n\geq 0} \ , \ (n^2)_{n\geq 0} \ , \ (n^3)_{n\geq 0} \ , \ (\sqrt{n})_{n\geq 0}\ , \ (n^p)_{n\geq 0}$ où $p$ est un entier naturel.
+   \item Limites des suites numériques de référence : $\left(\displaystyle\frac{1}{n}\right)_{n\geq 0} \ , \ \left(\displaystyle\frac{1}{n^2}\right)_{n\geq 0} \ , \ \left(\displaystyle\frac{1}{\sqrt{n}}\right)_{n\geq 0} \ , \ \left(\displaystyle\frac{1}{n^p}\right)_{n\geq 0}$ où $p$ est un entier naturel.
+   \item Suite convergente.
+   \item Critères de convergence; convergence d'une suite croissante et majorée; convergente d'une suite décroissante et minorée.
+   \item Suite divergente.
+   \item Opérations sur les limites de suites; limittes et ordre.
+\end{itemize}
+
+{\Large\ding{45}}
+\textcolor{red}{\large Les capacités attendues :}
+\begin{itemize}
+    \item Utiliser les suites arithmétiques et les suites géométriques pour étudier des exemples de suites de la forme :\\
+     $u_{n+1} = au_n + b$ et $u_{n+1} = \displaystyle\frac{au_n+b}{cu_n + d}$
+    \item Utiliser les suites de référence et les critéres de convergence pour déterminer les limites de suites numériques.
+    \item Utiliser les suites numériques pour résoudre des problèmes variés de différentes domaines.
+    \item Déterminer la limite d'une suite convergente $(u_n)$ de la forme : $u_{n + 1} = f(u_n)$ où $f$ est une fonction continue sur un intervalle $I$ et $f(I)\subset I$.
+\end{itemize}
+
+{\Large\ding{45}}
+\textcolor{red}{\large Recommandations pédagogiques :} 
+  \begin{itemize}
+    \item Toute étude théorique de la notion de limite d'une suite est hors programme.
+    \item En tenant compte du fait qu'une suite numérique est une fonction numérique sur l'ensemble des entiers naturels et à partir de limites de fonctions de référence on admettra dans une première étape les limites des suites : $(n)_{n\geq 0} \ , \ (n^2)_{n\geq 0} \ , \ (n^3)_{n\geq 0} \ , \ (\sqrt{n})_{n\geq 0}\ \text{et} \ (n^p)_{n\geq 0}$ et les suites : $\left(\displaystyle\frac{1}{n}\right)_{n\geq 0} \ , \ \left(\displaystyle\frac{1}{n^2}\right)_{n\geq 0} \ , \ \left(\displaystyle\frac{1}{\sqrt{n}}\right)_{n\geq 0} \ \text{et} \ \left(\displaystyle\frac{1}{n^p}\right)_{n\geq 0}$ où $p$ est un entier naturel supérieur ou égal à 3, quand $n$ tend vers $+\infty$.
+  \end{itemize}
+\end{boxone}
+
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{17cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+\rowcolor{head}
+
+\centering Contenu du cour &
+ Durée \\
+\hline
+\def\suite{(u_n)_{n\geq n_0}}
+
+\vspace{1mm}
+\mysection{Généralités sur les fonctions numériques}
+\begin{Definition}
+     \begin{itemize}
+         \item Une suite numérique est une fonction définie sur $\mathbb{N}$ ou une partie de $\mathbb{N}$.
+         \item Soit $f$ une fonction définie sur $\mathbb{N}$, alors $f$ est une suite numérique. Pour tout, $n\in\mathbb{N}$ on note $f(n)$ par $u_n$ et on note $f$ par $(u_n)_{n\geq 0}$ ou $(u_n)$.
+     \end{itemize}
+\end{Definition}
+
+\begin{exemple}
+    $(n^2 + n + 1)_{n\geq 0} \ , \ (\sqrt{n - 2})_{n\geq 2} \ , \ \left(\displaystyle\frac{1}{n}\right)_{n\geq 1} $ sont des suites numériques.
+\end{exemple}
+\mysubsection{1}{Suite majorée - suite minorée - suite bornée}
+
+Soit $(u_n)_{n\geq n_0}$ une suite numérique.
+\begin{Definition}
+    \begin{itemize}
+        \item On dit que la suite $(u_n)_{n\geq n_0}$ est majorée s'il existe un réel $M$ tel que : $(\forall n\geq n_0)\ \ u_n\leq M$.
+        \item On dit que la suite $(u_n)_{n\geq n_0}$ est minorée s'il existe un réel $m$ tel que : $(\forall n\geq n_0)\ \ u_n\geq m$.
+        \item On dit que la suite $(u_n)_{n\geq n_0}$ est bornée si elle est à fois majorée et minorée.
+    \end{itemize}
+\end{Definition}
+\begin{exemple}
+    \begin{enumerate}
+        \item La suite $\left(\displaystyle\frac{1}{n} + 1\right)_{n\geq 1}$ est une suite majorée.
+        \item La suite $(n^2 + 1)_{n\geq 0}$ est une suite minorée.
+    \end{enumerate}
+\end{exemple}
+
+\mysubsection{2}{Monotonie d'une suite numérique}
+\begin{Definition}
+    \begin{itemize}
+        \item On dit que la suite $(u_n)_{n\geq n_0}$ est \textcolor{red}{croissante} si : $(\forall n\geq n_0) \ \ u_{n+1} - u_n \geq 0$
+        \item On dit que la suite $(u_n)_{n\geq n_0}$ est \textcolor{red}{décroissante} si : $(\forall n\geq n_0) \ \ u_{n+1} - u_n \leq 0$
+        \item On dit que la suite $(u_n)_{n\geq n_0}$ est \textcolor{red}{constante} si : $(\forall n\geq n_0) \ \ u_{n+1} = u_n$
+    \end{itemize}
+\end{Definition}
+
+\begin{exemple}
+    \begin{enumerate}
+        \item La suite $(n^2)_{n\geq 0}$ est une suite croissante.
+        \item La suite $\left(\displaystyle\frac{1}{n}\right)_{n\geq 1}$ est une suite décroissante.
+    \end{enumerate}
+\end{exemple}
+\mysubsection{3}{Suite arithmétique}
+\begin{Definition}
+    On dit que la suite $\suite$ est \textcolor{red}{arithmétique} s'il existe un réel $r$ (indépendant de $n$) tel que : $$(\forall n\geq n_0) \ \ u_{n+1} - u_n = r$$
+    Le nombre $r$ est appelé la raison de la suite $\suite$.
+\end{Definition}
+
+&\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{17cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+\vspace{1mm}
+\begin{Proposition}
+    Si la suite $\suite$ est une suite arithmétique de raison $r$, alors pour tout $(n;p)$ tels que $n\geq n_0$ et $p\geq n_0$ : 
+    $$u_n = u_p + (n-p).r \ \text{ et } \ u_p + u_{p+1} + \dots + u_n = \displaystyle\frac{n - p + 1}{2}(u_n + u_p) \ \ (n\geq p)$$
+\end{Proposition}
+
+\mysubsection{4}{Suite géométrique}
+\begin{Definition}
+    On dit que la suite $\suite$ est géométrique s'il existe un réel $q$ (indépendant de $n$) tel que : $$(\forall n\geq n_0) \ \ u_{n+1}=qu_{n}$$
+    Le nombre $q$ est appelé la raison de la suite $\suite$.
+\end{Definition}
+
+\begin{Proposition}
+    Si la suite $\suite$ est une suite géométrique de raison $q\in\mathbb{R}^*-\{1\}$, alors pour tout $(n;p)$ tels que $n\geq n_0$ et $p\geq n_0$ :
+    $$u_n = u_p.q^{n-p} \text{ \ et \ } u_p + u_{p+1} + \dots + u_n = u_P.\displaystyle\frac{1 - q^{n - p + 1}}{1 - q} \quad (n\geq p)$$
+\end{Proposition}
+
+\mysection{Limite d'une fonction numérique}
+
+\mysubsection{1}{Limite infinie des suites usuelles}
+\begin{Proposition}
+    Soit $p$ un entier naturel supérieure ou égal à $4$. Alors :
+    \begin{itemize}
+        \item $\Lim_{n\to +\infty} n = +\infty\quad ; \quad \Lim_{n\to +\infty} n^2 = +\infty \quad ; \quad \Lim_{n\to +\infty}n^3 = +\infty \quad ;\quad \Lim_{n\to +\infty}n^p = +\infty$.
+        \item $\Lim_{n\to +\infty}\sqrt{n} \quad ; \quad \Lim_{n\to +\infty}\sqrt[3]{n} = +\infty \quad ; \quad \Lim_{n\to +\infty}\sqrt[p]{n} = +\infty$.
+    \end{itemize}
+\end{Proposition}
+
+\mysubsection{2}{Convergence d'une suite numérique}
+\begin{Definition}
+    On dit qu'une suite numérique est \textcolor{red}{convergente} si elle admet une limite réelle. Dans le cas contraire, on dit qu'elle est \textcolor{red}{divergente}.
+\end{Definition}
+
+\begin{Proposition}
+    Soit $k$ un réel et $p$ un entier naturel non nul. Alors : $\Lim_{n\to +\infty}\displaystyle\frac{k}{n^p} = 0$ et $\Lim_{n\to +\infty}\displaystyle\frac{k}{\sqrt{n}} = 0$.
+
+    En particulier : $\Lim_{n\to +\infty}\displaystyle\frac{1}{n} = 0\quad;\quad \Lim_{n\to +\infty}\displaystyle\frac{1}{n^2} = 0\quad;\quad\Lim_{n\to +\infty}\displaystyle\frac{1}{\sqrt{n}} = 0$.
+\end{Proposition}
+\begin{Proposition}
+    Étant donné une suite $\suite$ et $l\in\mathbb{R}$, alors on a les équivalences suivantes :
+    $$\Lim_{n\to +\infty}u_n = l \Longleftrightarrow\Lim_{n\to +\infty}(u_n - l) = 0 \quad\text{ et }\quad\Lim_{n\to +\infty}u_n = l \Longleftrightarrow\Lim_{n\to +\infty}|u_n - l| = 0$$
+\end{Proposition}
+\textcolor{red}{Remarque :}
+
+\begin{itemize}
+    \item Dire qu'une suite diverge (ou qu'elle est divergente), ne signifie pas qu'elle tend vers l'infinie.
+    
+    Cela signifie exactement que la suite n'a pas de limite ou qu'elle tend vers l'infini.
+\end{itemize}
+
+&\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{17cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+
+\vspace{1mm}
+\begin{exemple}
+    Soit $\suite$ une suite numérique définie par : $u_n = \displaystyle\frac{3n^2 + (-1)^n}{n^2}$. Montrons que $\Lim_{n\to +\infty}u_n = 3$.
+\end{exemple}
+
+\mysubsection{3}{Opérations sur les limites}
+\begin{Proposition}
+    \begin{itemize}
+        \item Limite de la somme :  
+        
+        \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+           $\Lim_{}u_n$  & $l$ & $l$ & $l$ & $+\infty$ & $-\infty$ & $+\infty$  \\ 
+        \hline
+           $\Lim_{}v_n$  & $l^{'}$ & $+\infty$ & $-\infty$ & $+\infty$ & $-\infty$ & $-\infty$ \\
+        \hline
+            $\Lim_{}(u_n + v_n)$ & $l + l^{'}$ & $+\infty$ & $-\infty$ & $+\infty$ & $-\infty$ & Forme indéterminée\\
+        \hline
+        \end{tabular}
+        \item Limite du produit :
+        
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+           $\Lim_{}u_n$  & $l$ & $+\infty$ & $+\infty$ & $-\infty$ & $-\infty$ & $+\infty$ & $+\infty$ ou $-\infty$ \\ 
+        \hline
+           $\Lim_{}v_n$  & $l^{'}$ & $l^{'}>0$ & $l^{'} < 0$ & $+\infty$ & $- \infty$ & $+\infty$ & $0$\\
+        \hline
+            $\Lim_{}(u_n \times v_n)$ & $ll^{'}$ & $+\infty$ & $-\infty$ & $-\infty$ & $+\infty$ & $+\infty$ & Forme indéterminée\\
+        \hline
+        \end{tabular}
+        \item Limite de l'inverse :
+        
+        \begin{tabular}{|c|c|c|c|}
+        \hline
+            $\Lim_{}u_n$ & $l\neq 0$ & $+\infty$ ou $-\infty$ & $0$ \\
+        \hline
+            $\Lim_{}\dfrac{1}{u_n}$ & $\displaystyle\frac{1}{l}$ & $0$ & $\Lim{}\dfrac{1}{|u_n|} = +\infty$ \\
+        \hline
+        \end{tabular}
+    \end{itemize}
+\end{Proposition}
+
+\begin{application}
+    Calculer la limite de chacune des suites suivantes définies par :
+    $$u_n = \displaystyle\frac{2\sqrt{n} - 3}{5\sqrt{n} + 2}\quad;\quad v_n = \dfrac{n^2 + 5n + 6}{n^2 + 7n + 8}\quad;\quad w_n = \dfrac{2n-7}{n^4 + 3n^2 + 1}\quad;\quad x_n = \sqrt{4n^2 - 4n + 1} - 2n$$
+    $$y_n = \sqrt{n+2} - \sqrt{n+3} \quad;\quad a_n = (n+4)\sqrt[3]{\dfrac{1}{n^3}} \quad;\quad b_n = 4 + \dfrac{1}{n} - \dfrac{10}{\sqrt[5]{n}} $$
+\end{application}
+
+\mysubsection{4}{Limites et ordre}
+\begin{Proposition}
+    Soit $\suite$ et $(v_n)_{n\geq n_0}$ deux suites numériques convergentes. Alors :
+    \begin{itemize}
+        \item Si la suite $\suite$ est positive, alors : $\Lim u_n \geq 0$.
+        \item Si $u_n \leq v_n$ pour tout entier $n\geq n_0$, alors : $\Lim u_n \leq \Lim v_n$.
+    \end{itemize}
+\end{Proposition}
+
+\textcolor{red}{Remarque :}
+
+Une suite strictement positive (à partir d'un certain rang) et convergente peut avoir une limite nulle. Par exemple : On a : $\dfrac{1}{n}$ pour tout $n\in\mathbb{N}^*$, mais $\Lim \dfrac{1}{n} = 0$.
+
+\mysubsection{5}{Monotonie et convergence}
+
+\begin{Thm}{Théorème}
+    \begin{itemize}
+        \item Toute suite croissante majorée est convergente.
+        \item Toute suite décroissante minorée est convergente.
+    \end{itemize}
+    Ce résultat porte le nom de \textcolor{red}{Théorème de la convergence monotone}.
+\end{Thm}
+&\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{17cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+\vspace{1mm}
+
+\begin{application}
+    \begin{enumerate}
+        \item Soit $\suite$ une suite numérique défine par $u_0 = 0$ et pour tout $n\in\mathbb{N}$ : $u_{n+1}=\sqrt{2+u_n}$.
+            \begin{enumerate}
+                \item Montrer par récurrence que pour tout $n\in\mathbb{N}$ : $0\leq u_n\leq 2$.
+                \item Étudier la monotonie de la suite $\suite$.
+                \item Déduire que la suite $\suite$ est convergente.
+            \end{enumerate}
+        \item Soit $\suite$ une suite numérique définie par $u_0 = \dfrac{3}{2}$ et pour tout $n\in\mathbb{N}$ : $u_{n+1} = \dfrac{u_n^2 + 1}{2u_n}$.
+        \begin{enumerate}
+            \item Montrer par récurrence que $(\forall n\in\mathbb{N}) \ \ u_n > 1$.
+            \item Érudier la monotonie de la suite $\suite$.
+            \item Déduire que la suite $\suite$  est convergente.
+        \end{enumerate}
+    \end{enumerate}
+\end{application}
+
+\mysection{Critére de convergence - Limite d'une suite géométrique}
+
+\mysubsection{1}{Critéres de convergence}
+\begin{Proposition}
+    Soit $\suite$ et $(v_n)_{n\geq n_0}$ deux suites numériques telles que pour tout $n\geq n_0$ : $u_n \leq v_n$.
+    \begin{itemize}
+        \item Si $\Lim_{n\to +\infty}u_n = +\infty$ alors $\Lim_{n\to +\infty}v_n = +\infty$
+        \item Si $\Lim_{n\to +\infty}v_n = -\infty$ alors $\Lim_{n\to +\infty}u_n = -\infty$.
+    \end{itemize}
+\end{Proposition}
+\begin{exemple}
+    \begin{enumerate}
+        \item Soit $(u_n)$ la suite définie par : $u_n = -n + \cos\sqrt{n} - 1$.
+        Montrons que $\Lim u_n = -\infty$.
+    \end{enumerate}
+\end{exemple}
+
+\begin{application}
+    Soit $(u_n)_{n\geq 0}$ la suite numérique définie par $u_0 = 1$ et pour tout $n\in\mathbb{N}$ : $u_{n+1} = u_n + 2n +3$.
+    \begin{enumerate}
+        \item Montrer que $(\forall n\in\mathbb{N}) \ \ u_n > n^2$.
+        \item Déduire la limite de $u_n$.
+    \end{enumerate}
+\end{application}
+
+\begin{Thm}{Théorème}
+    Soit $\suite$ et $(v_n)_{n\geq n_0}$ deux suites numériques convergeant vers une limite commune $l$.
+
+    Si $(\exists N\geq n_0)\ (\forall n\geq N) \ \ v_n \leq u_n \leq w_n$, alors $\Lim_{n\to +\infty}u_n = l$.
+
+    Ce résultat est appelé \textcolor{red}{Théorème des limites comparées}.
+\end{Thm}
+
+\begin{exemple}
+    Soit $(u_n)_{n\geq 0}$ la suite définie par : $u_n = \dfrac{n + \cos{n}}{n^2 + 1}$.
+    
+    Montrons que la suite $(u_n)$ est convergente et calculons sa limite.
+\end{exemple}
+
+    
+&\\
+\hline
+\end{tabular}
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{17cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+\vspace{1mm}
+
+\begin{application}
+\begin{enumerate}
+    \item Soit $(u_n)_{n\geq 1}$ la suite numérique définie par : $u_n = \dfrac{3n + \cos{\dfrac{5}{n}}}{n + 1}$.
+        \begin{enumerate}
+            \item Montrer que : $(\forall n\in\mathbb{N}^*) \ \ \dfrac{3n-1}{n+1}\leq u_n\leq \dfrac{3n + 1}{n + 1}$
+            \item En déduire que la suite $(u_n)_{n\geq 1}$ est convergente et déterminer sa limite.
+        \end{enumerate}
+    \item Soit $(v_n)_{n\geq 0}$ la suite numérique définie par : $v_n = \dfrac{\sqrt{n}\sin{n}}{n + 1}$.
+        \begin{enumerate}
+            \item Montrer que la suite $(v_n)_{n\geq 0}$ est convergente st calculer sa limite.
+        \end{enumerate}
+\end{enumerate}
+\end{application}
+
+\textcolor{red}{Corollaire :}
+
+Soit $\suite$ une suite numérique et $l$ un nombre réel. S'il existe une suite $(v_n)_{n\geq n_0}$ tendant vers $0$ telle que pour tout $n\geq n_0$, $|u_n - l|\leq v_n$, alors $\Lim_{n\to +\infty}u_n = l$.
+
+\mysubsection{2}{Limite d'une suite géométrique}
+\begin{Proposition}
+    Soit $q$ un nombre réel non nul.
+    \begin{itemize}
+        \item Si $q>1$ alors $\Lim_{n\to +\infty}q^n = +\infty$.
+        \item Si $-1 < q < 1$ alors $\Lim_{n\to +\infty}q^n = 0$.
+        \item Si $q = 1$ alors $\Lim_{n\to +\infty}q^n = 1$.
+        \item Si $q \leq -1$ alors la suite $(q^n)_{n\geq 0}$ n'admet pas de limite.
+    \end{itemize}
+\end{Proposition}
+
+\begin{exemple}
+    $\Lim_{n\to +\infty}\left(\dfrac{1}{2}\right)^n = 0$ car : $-1 < \dfrac{1}{2} < 1$.
+
+    $\Lim_{n\to +\infty}\left(- \dfrac{1}{4}\right)^n = 0$ car : $-1 < -\dfrac{1}{4} < 1$. 
+\end{exemple}
+
+\begin{application}
+    Calculer la limite de $(u_n)$ :
+    $$u_n = \left(- \dfrac{4}{5}\right)^n\quad;\quad u_n = \dfrac{2^n + 5^n}{ 3^n - 5^n}\quad;\quad u_n = \dfrac{4^n}{3^{2n}}\quad;\quad u_n = \dfrac{3^{2n+1}}{2^{n+1}\times 5^{n - 2}} \quad;\quad u_n = \left(\dfrac{1 -\sqrt{2}}{1+\sqrt{2}}\right)^n$$
+\end{application}
+
+\mysection{Suites de la forme $u_{n+1}=f(u_n)$ et $v_n = f(u_n)$}
+
+\mysubsection{1}{Limite d'une suite de la forme $v_n=f(u_n)$}
+\begin{Proposition}
+    Si une suite $\suite$ est convergente vers $l$ et $f$ est une fonction continue en $l$, alors la suite $(v_n)_{n\geq n_0}$ définie par $v_n = f(u_n)$ est convergente et sa limite est $f(l)$.
+\end{Proposition}
+
+\begin{exemple}
+    Soit $(v_n)$ la suite numérique définie par : $v_n = \tan\left(\dfrac{\pi n + 1}{3n + 2}\right)$. Montrons que $\Lim v_n = \sqrt{3}$.
+\end{exemple}
+&\\
+\hline
+\end{tabular}
+
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{17cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+\vspace{1mm}
+\begin{application}
+    Déterminer les limites des suites numériques définies par :
+    $$u_n = \cos\left(\dfrac{n\pi - 2}{n^2 + 1}\right)\quad;\quad v_n = \sqrt[3]{\dfrac{8n^2 + 1}{27n^2 - 2n + 5}}\quad;\quad w_n = \sin\left(\dfrac{\pi^2}{n + \pi}\right)$$
+\end{application}
+
+\mysubsection{2}{Limite de la suite $(n^r)$ où $r\in\mathbb{Q}^*$}
+\begin{Proposition}
+    Soit $r$ un nombre rationnel non nul.
+    \begin{itemize}
+        \item Si $r>0$ alors $\Lim_{n\to +\infty}n^r = +\infty$.
+        \item Si $r<0$ alors $\Lim_{n\to +\infty}n^r = 0$.
+    \end{itemize}
+\end{Proposition}
+\begin{exemple}
+    $$\Lim_{n\to +\infty}n^{\frac{5}{6}} = +\infty \quad;\quad \Lim_{n\to +\infty}n^{\frac{2}{7}} = +\infty \quad;\quad \Lim_{n\to +\infty}n^{-\frac{5}{6}} = 0\quad;\quad \Lim_{n\to +\infty}n^{-\frac{54}{61}} = 0$$
+\end{exemple}
+\mysubsection{3}{Suite de la forme $u_{n+1} = f(u_n)$}
+\begin{Proposition}
+    Soit $f$ une fonction continue sur un intervalle $I$ telle que $f(I)\subset I$.
+
+    Soit $\suite$ une suite réelle définie par $u_{n_0}\in I$ et $u_{n+1} = f(u_n)$ pour tout entier $n\geq n_0$.
+
+    Si $\suite$ est convergente de limite $l$ et $l\in I$, alors $l$ est solution dans $I$ de l'équation $f(x) = x$.
+\end{Proposition}
+
+\begin{application}
+    Soit $(u_n)$ la suite définie par : $u_0 = 1$ et $u_{n+1} = \sqrt{\dfrac{1+ u_n}{2}}$ pour tout $n\in\mathbb{N}$.
+    \begin{enumerate}
+        \item Montrer par récurrence que : $0\leq u_n \leq 1$ pour tout $n\in\mathbb{N}$.
+        \item Montrer que $(u_n)_{n\geq 0}$ est décroissante.
+        \item En déduire que la suite $(u_n)_{n\geq 0}$ est convergente et déterminer sa limite.
+    \end{enumerate}
+\end{application}
+
+&\\
+\hline
+\end{tabular}
+
+
+\end{document}

@@ -1,0 +1,705 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[right=0.5cm, left=0.5cm,top=0.5cm,bottom=0.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{array, tasks}
+\usepackage{blindtext}
+\usepackage{fontspec}
+\usepackage{amsmath,amsfonts,amssymb,mathrsfs,amsthm}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage[font={bf}]{caption}
+% \captionsetup[table]{box=colorbox,boxcolor=orange!20}
+\usepackage{float}
+\usepackage{esvect}
+\usepackage{tabularx}
+\usepackage{pifont}
+\usepackage{colortbl}
+ \usepackage{fancybox}
+ \mathversion{bold}
+ \usepackage{pgfplots}
+ % \usepackage[utf8]{inputenc}
+\usepackage{tikz}
+ \usepackage[tikz]{bclogo}%
+ \usepackage{mathpazo}
+\usepackage{ulem}
+\usepackage{yagusylo}
+\usepackage{textcomp}\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{varwidth}
+\usetikzlibrary{calc,intersections}
+\usepackage{pgfplots}
+%\usepackage{fourier}
+\pgfplotsset{compat=1.11}
+\usepackage{tkz-tab}
+\usepackage{xcolor}
+\usepackage{color}
+\usetikzlibrary{calc}
+\mathchardef\times="2202
+\usepackage[most]{tcolorbox}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{ocre}{RGB}{0,244,244} 
+\definecolor{head}{RGB}{255,211,204}
+\definecolor{browndark}{RGB}{105,79,56}
+%\RequirePackage[framemethod=default]{mdframed}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,decorations.pathmorphing,arrows.meta,decorations.markings}
+\usetikzlibrary{arrows.meta}
+\makeatletter
+\tcbuselibrary{skins,breakable,xparse}
+\tcbset{%
+  save height/.code={%
+    \tcbset{breakable}%
+    \providecommand{#1}{2cm}%
+    \def\tcb@split@start{%
+      \tcb@breakat@init%
+      \tcb@comp@h@page%
+      \def\tcb@ch{%
+        \tcbset{height=\tcb@h@page}%
+        \tcbdimto#1{#1+\tcb@h@page-\tcb@natheight}%
+        \immediate\write\@auxout{\string\gdef\string#1{#1}}%
+        \tcb@ch%
+      }%
+      \tcb@drawcolorbox@standalone%
+    }%
+  }%
+}
+\newcommand{\Lim}{\displaystyle\lim}
+\makeatother
+\newcommand{\oij}{$\left( \text{O};\vv{i},\vv{j} , \vv{k}\right)$}
+\colorlet{darkred}{red!30!black}
+\newcommand{\red}[1]{\textcolor{darkred}{ #1}}
+\newcommand{\rr}{\mathbb{R}}
+\renewcommand{\baselinestretch}{1.2}
+ \setlength{\arrayrulewidth}{1.25pt}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{minitoc}
+\usepackage{ulem}
+%--------------------------------------------------------------
+
+\usetikzlibrary{decorations.pathmorphing}
+\tcbuselibrary{skins}
+
+%%%%%%%%%%%
+%-------------------------------------------------------------------------
+\tcbset{
+        enhanced,
+        colback=white,
+        boxrule=0.1pt,
+        colframe=brown!10,
+        fonttitle=\bfseries
+       }
+\definecolor{problemblue}{RGB}{100,134,158}
+\definecolor{idiomsgreen}{RGB}{0,162,0}
+\definecolor{exercisebgblue}{RGB}{192,232,252}
+\definecolor{darkbrown}{rgb}{0.4, 0.26, 0.13}
+
+\newcommand*{\arraycolor}[1]{\protect\leavevmode\color{#1}}
+\newcolumntype{A}{>{\columncolor{blue!50!white}}c}
+\newcolumntype{B}{>{\columncolor{LightGoldenrod}}c}
+\newcolumntype{C}{>{\columncolor{FireBrick!50}}c}
+\newcolumntype{D}{>{\columncolor{Gray!42}}c}
+
+\newcounter{mysection}
+\newcounter{mysubsection}
+\newcommand{\mysection}[1]{%
+    \stepcounter{mysection} % Increment the counter
+    \textcolor{red}{\LARGE\themysection. #1 :}
+}
+\newcommand{\mysubsection}[2]{
+    \stepcounter{mysubsection}
+    \textcolor{red}{\large \themysection.#1. #2 :}
+}
+% \textcolor{red}{\LARGE\bfseries 1. Les équation du deuxiéme degrée :}
+
+%------------------------------------------------------
+\newtcolorbox[auto counter]{Def}[1]{enhanced,
+before skip=2mm,after skip=2mm,
+colback=yellow!20!white,colframe=lime,boxrule=0.2mm,
+attach boxed title to top left =
+    {xshift=0.6cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=lime]
+                            ([yshift=-1mm,xshift=-1mm]frame.north west)  
+                            arc[start angle=0,end angle=180,radius=1mm]
+                            ([yshift=-1mm,xshift=1mm]frame.north east)
+                            arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=lime,right color = lime,
+                            middle color = lime]
+                            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east) 
+                            -- (frame.south east) -- (frame.south west)
+                            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                            [sharp corners]-- cycle;
+                            },interior engine=empty,
+                    },
+fonttitle=\bfseries\sffamily,
+title={#1 ~\thetcbcounter}}
+%------------------------------------------------------
+\newtcolorbox[auto counter]{Prop}{enhanced,
+before skip=2mm,after skip=2mm,
+colback=yellow!20!white,colframe=blue,boxrule=0.2mm,
+attach boxed title to top left =
+    {xshift=0.6cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=blue]
+                            ([yshift=-1mm,xshift=-1mm]frame.north west)  
+                            arc[start angle=0,end angle=180,radius=1mm]
+                            ([yshift=-1mm,xshift=1mm]frame.north east)
+                            arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=blue,right color = blue,
+                            middle color = blue]
+                            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east) 
+                            -- (frame.south east) -- (frame.south west)
+                            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                            [sharp corners]-- cycle;
+                            },interior engine=empty,
+                    },
+fonttitle=\bfseries\sffamily,
+title={Proposition ~\thetcbcounter}}
+%------------------------------------------------------
+\newtcolorbox[auto counter]{Thm}[1]{enhanced,
+before skip=2mm,after skip=2mm,
+colback=yellow!20!white,colframe=red,boxrule=0.2mm,
+attach boxed title to top left =
+    {xshift=0.6cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=red]
+                            ([yshift=-1mm,xshift=-1mm]frame.north west)  
+                            arc[start angle=0,end angle=180,radius=1mm]
+                            ([yshift=-1mm,xshift=1mm]frame.north east)
+                            arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=red,right color = red,
+                            middle color = red]
+                            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east) 
+                            -- (frame.south east) -- (frame.south west)
+                            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                            [sharp corners]-- cycle;
+                            },interior engine=empty,
+                    },
+fonttitle=\bfseries\sffamily,
+title={#1 ~\thetcbcounter}}
+%------------------------------------------------------
+\newtcolorbox[auto counter]{exemple}{
+  % breakable,
+  enhanced,
+  colback=white,
+  boxrule=0pt,
+  arc=0pt,
+  outer arc=0pt,
+  title=Exemple ~\thetcbcounter,
+  fonttitle=\bfseries\sffamily\large\strut,
+  coltitle=problemblue,
+  colbacktitle=problemblue,
+  title style={
+left color=exercisebgblue,
+    right color=white,
+    middle color=exercisebgblue  
+  },
+  overlay={
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.south east);
+    % \draw[line width=1pt,problemblue] (frame.north west) -- (frame.north east);
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.north west);
+    % \draw[line width=1pt,problemblue] (frame.south east) -- (frame.north east);
+  }
+}
+%----------------------------------------------------
+\newtcolorbox[auto counter]{application}{
+  % breakable,
+  enhanced,
+  colback=white,
+  boxrule=0pt,
+  arc=0pt,
+  outer arc=0pt,
+  title=Application ~\thetcbcounter,
+  fonttitle=\bfseries\sffamily\large\strut,
+  coltitle=problemblue,
+  colbacktitle=problemblue,
+  title style={
+left color=exercisebgblue,
+    right color=white,
+    middle color=exercisebgblue  
+  },
+  overlay={
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.south east);
+    \draw[line width=1pt,problemblue] (frame.north west) -- (frame.north east);
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.north west);
+    \draw[line width=1pt,problemblue] (frame.south east) -- (frame.north east);
+  }
+}
+%----------------------------------------------------
+\newtcolorbox{mybox}[2]{enhanced,breakable,
+    before skip=2mm,after skip=2mm,
+    colback=white,colframe=#2!30!blue,boxrule=0.3mm,rightrule=0.3mm,
+    attach boxed title to top center={xshift=0cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+    \path[fill=#2!30!black]
+    ([yshift=-1mm,xshift=-1mm]frame.north west)
+    arc[start angle=0,end angle=180,radius=1mm]
+    ([yshift=-1mm,xshift=1mm]frame.north east)
+    arc[start angle=180,end angle=0,radius=1mm];
+    \path[draw=black,line width=1pt,left color=#2!1!white,right color=#2!1!blue!65,
+    middle color=#2!1!green]
+    ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+    [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+    -- (frame.south east) -- (frame.south west)
+    -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+    [sharp corners]-- cycle;
+    },interior engine=empty,
+    },
+title=#1,coltitle=black,fonttitle=\sffamily}
+%---------------------------------------------
+\newtcolorbox{boxone}{%
+    enhanced,
+    colback=brown!10,
+    boxrule=0pt,
+    sharp corners,
+    drop lifted shadow,
+    frame hidden,
+    fontupper=\bfseries,
+    notitle,
+    overlay={%
+        \draw[Circle-Circle, brown!70!black, line width=2pt](frame.north west)--(frame.south west); 
+        \draw[Circle-Circle, brown!70!black, line width=2pt](frame.north east)--(frame.south east);}
+    }
+    
+\begin{document}
+
+\begin{tcolorbox}[title=\textcolor{blue}{\shadowbox{ Prof : Othmane Laksoumi}}
+\hfill
+\textcolor{blue}{\shadowbox{ Révision }}]
+
+\end{tcolorbox}
+
+\begin{mybox}{Lycée Qualifiant Zitoun}{gray}
+    \begin{minipage}{8cm}
+    \textcolor{darkbrown}{Année scolaire : } 2024-2025 \\
+    \textcolor{darkbrown}{Niveau : } 2 Bac Sciences Physiques \\
+    \textcolor{darkbrown}{Durée totale : } $5h$
+    \end{minipage}
+\end{mybox}
+
+\begin{tabular}{|>{\centering\arraybackslash}p{1.2cm}|>{\raggedright\arraybackslash}p{15.5cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+\rowcolor{head}
+
+Etapes &
+\centering Contenu du cour &
+ Durée \\
+\hline
+
+% \vspace{1cm}
+% \rotatebox{90}{Phase de lancement}
+
+% \vspace{1cm}
+
+% \rotatebox{90}{construction de connaissances}
+ 
+&
+\vspace{0.1cm}
+
+% \textbf{Les équation du deuxiéme degrée :}
+% \textcolor{red}{\LARGE\bfseries 1. Les équation du deuxiéme degrée :}
+\mysection{Les équations du deuxiéme degrée}
+\begin{Prop}
+On considère dans $\mathbb{R}$ l'équation $ax^2 + bx + c = 0$ où $a \neq 0$. 
+
+On pose $\Delta = b^2 - 4ac$ comme discriminant de cette équation. Les solutions possibles sont les suivantes :
+
+\begin{itemize}
+    \item Si $\Delta < 0$, l'équation n'admet pas de solution, et son ensemble de solutions est $S = \emptyset$.
+    \item Si $\Delta = 0$, l'équation admet une solution unique, $S = \left\{ \frac{-b}{2a} \right\}$.
+    \item Si $\Delta > 0$, l'équation admet deux solutions distinctes, à savoir :
+    \[
+    x_1 = \frac{-b + \sqrt{\Delta}}{2a} \quad \text{et} \quad x_2 = \frac{-b - \sqrt{\Delta}}{2a}.
+    \]
+\end{itemize}
+\end{Prop}
+
+\begin{exemple}
+    \begin{enumerate}
+        \item Résolvons dans $\mathbb{R}$ l'équation : $x^2+4x-5 = 0$
+        \item Résolvons dans $\mathbb{R}$ l'équation : $2x^2 - 3x - 5= 0$
+        \item Résolvons dans $\mathbb{R}$ l'équation : $x^2 + x + 1= 0$
+    \end{enumerate}
+\end{exemple}
+
+\begin{Prop}
+    On considère le trinôme $P(x) = ax^2 + bx + c$ $(a \neq 0)$ et soit $\Delta$ son discriminant.
+
+\begin{itemize}
+    \item Si $\Delta < 0$, alors le signe de $P(x)$ est celui de $a$ pour tout $x \in \mathbb{R}$.
+    \item Si $\Delta = 0$, alors le signe de $P(x)$ est celui de $a$ pour tout $x \neq -\frac{b}{2a}$.
+    \item Si $\Delta > 0$, alors le signe de $P(x)$ :
+    \begin{itemize}
+        \item est celui de $a$ à l'extérieur des racines ;
+        \item est le signe contraire de $a$ à l'intérieur des racines.
+    \end{itemize}
+\end{itemize}
+\end{Prop}
+
+\begin{exemple}
+    \begin{enumerate}
+        \item Etudions le signe du trinôme $P(x) = -3x^2+x-2$
+    \end{enumerate}
+\end{exemple}
+
+\begin{application}
+    Résoudre dans $\mathbb{R}$ les équations suivantes et étudier le signe de chaque trinôme sur $\mathbb{R}$ :
+    \begin{enumerate}
+        \item  $2x^2 - x - 1 = 0$
+        \item  $x^2 - 6x + 9 = 0$
+    \end{enumerate}
+\end{application}
+
+&
+ \\
+\hline
+
+\end{tabular}
+
+\begin{tabular}{|>{\centering\arraybackslash}p{1.2cm}|>{\raggedright\arraybackslash}p{15.5cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+     & 
+\vspace{2mm}
+% \textcolor{red}{\LARGE\bfseries 2. Le domaine de définition d'une fonction :}
+\mysection{Le domaine de définition d'une fonction}
+\vspace{1mm}
+\begin{Def}{Définition}
+    Soit $f$ une fonction numérique. Le domaine de définition de $f$, noté $D_f$, 
+    est l'ensemble des réels $x$ pour lesquesls $f(x)$ est bien définie. \\
+    Autrement dit, $D_f$ est l'ensemble des $x\in\mathbb{R}$ tels que l'expression de $f(x)$ existe et a un sens.
+\end{Def}
+
+\begin{exemple}
+    \begin{enumerate}
+        \item L'ensemble de définition de la fonction $x\longmapsto\displaystyle\frac{1}{x}$ est $\mathbb{R}\backslash \{0\}$.
+        \item L'ensemble de définition de la fonction $x\longmapsto\sqrt{x}$ est $\mathbb{R}^+$.
+    \end{enumerate}
+\end{exemple}
+
+\begin{Prop}
+    Soient $P$ et $Q$ deux polynômes et $f$ une fonction numérique.
+    \begin{enumerate}
+        \item Si $f(x) = P(x)$ alors, $D_f = \mathbb{R}$
+        \item Si $f(x) = \displaystyle\frac{P(x)}{Q(x)}$ alors, $D_f = \{x\in\mathbb{R} \backslash \ Q(x)\neq 0\}$
+        \item Si $f(x) = \sqrt{P(x)}$ alors, $D_f = \{x\in\mathbb{R} \backslash \ P(x) \geq 0\}$
+        \item Si $f(x) = \displaystyle\frac{\sqrt{P(x)}}{Q(x)}$ alors, $D_f= \{x\in\mathbb{R} \backslash \ P(x) \geq 0\ \text{ et } Q(x) \neq 0 \}$
+        \item Si $f(x) = \displaystyle\sqrt{\frac{P(x)}{Q(x)}}$ alors, $D_f= \{x\in\mathbb{R} \backslash \ \displaystyle\frac{P(x)}{Q(x)} \geq 0\ \text{ et } Q(x) \neq 0 \}$
+    \end{enumerate} 
+\end{Prop}
+
+\begin{application}
+    Déterminer l’ensemble de définition des fonctions suivantes :
+        \begin{enumerate}
+            \item $f(x) = x^3+2x^2-x-5$
+            \item $f(x) = \displaystyle\frac{x^2-4x+3}{x^2-x-2}$
+            \item $f(x) = \sqrt{x^2-4x+3}$
+            \item $f(x) = \displaystyle\frac{\sqrt{x^2-x-2}}{x-2}$
+            \item $f(x) = \sqrt{\displaystyle\frac{x^2-8x+9}{x^2-4x}}$
+        \end{enumerate}
+\end{application}
+\mysection{Limite d'une fonction numérique}
+\vspace{2mm}\newline
+\mysubsection{1}{Limites usuelles :}
+\begin{Prop}
+    Soit $n$ un entier naturel non nul. Alors : 
+    \begin{tasks}(2)
+        \task $\Lim_{x\to +\infty} \displaystyle\frac{1}{x} = 0$
+        \task $\Lim_{x\to -\infty} \displaystyle\frac{1}{x} = 0$
+        \task $\Lim_{x\to +\infty} \displaystyle\frac{1}{x^n} = 0$
+        \task $\Lim_{x\to -\infty} \displaystyle\frac{1}{x^n} = 0$
+    \end{tasks}
+\end{Prop}
+
+& \\ 
+\hline
+\end{tabular}
+
+\newpage
+
+\begin{tabular}{|>{\centering\arraybackslash}p{1.2cm}|>{\raggedright\arraybackslash}p{15.5cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+     & 
+\vspace{-2mm}
+
+
+% \textcolor{red}{\LARGE\bfseries 3. Limite d'une fonction numérique :}
+
+% \textcolor{red}{\large\bfseries 3.1. Limite infinie d'une fonction en $+\infty$ ou en $-\infty$ :}
+
+\begin{Prop}
+    Soit $n$ un entier naturel non nul. Alors : 
+    \begin{tasks}(3)
+        \task $\Lim_{x\to +\infty} x = +\infty$
+        \task $\Lim_{x\to +\infty} x^2 = +\infty$
+        \task $\Lim_{x\to +\infty} x^3 = +\infty$
+        \task*(3) $\Lim_{x\to +\infty} x^n = +\infty$
+        
+        \task $\Lim_{x\to +\infty} \sqrt{x} = +\infty$ 
+        \task $\Lim_{x\to -\infty} x = -\infty$
+        \task $\Lim_{x\to -\infty} x^2 = +\infty$
+        \task*(3) $\Lim_{x\to -\infty} x^3 = -\infty$ 
+        
+        \task*(3) Si $n$ est paire et $n\neq 0$, alors $\Lim_{x\to -\infty} x^n = +\infty$
+        \task*(3) Si $n$ est impaire et $n\neq 0$, alors $\Lim_{x\to -\infty} x^n = -\infty$
+        
+    \end{tasks}
+
+\end{Prop}
+% \textcolor{red}{\large\bfseries 3.2. Limite finie d'une fonction en $+\infty$ ou en $-\infty$ :}3
+
+
+
+\begin{Prop}
+    Soit $n$ un entier naturel non nul. Alors : 
+    \begin{tasks}(2)
+        \task $\Lim_{x\to 0^+} \displaystyle\frac{1}{x} = +\infty$
+        \task $\Lim_{x\to 0^-} \displaystyle\frac{1}{x} = -\infty$
+        \task $\Lim_{x\to 0^+} \displaystyle\frac{1}{x^n} = +\infty$
+        \task $\Lim_{x\to 0^+} \sqrt{x} = 0$
+        \task*(2) $\Lim_{x\to 0^+} \displaystyle\frac{1}{\sqrt{x}} = +\infty$
+         \task*(2) Si $n$ est paire et $n\neq 0$, alors $\Lim_{x\to 0^-} \displaystyle\frac{1}{x^n} = +\infty$
+         \task*(2) Si $n$ est impaire et $n\neq 0$, alors $\Lim_{x\to 0^-} \displaystyle\frac{1}{x^n} = -\infty$
+    \end{tasks}
+\end{Prop}
+
+\begin{Thm}{Théorème}
+    Soit $f$ une fonction numérique.
+    $$\Lim_{x\to a} f(x) = l \Leftrightarrow \Lim_{x\to a^+} f(x) = \Lim_{x\to a^-} f(x) = l$$
+\end{Thm}
+
+\mysubsection{2}{Limite d'une fonction polynômiale - Limite d'une fonction rationnelle}
+
+\begin{Prop}
+    Soit $P$ et $Q$ deux fonctions polynômes et $x_0$ un réel. alors :
+    \begin{tasks}(2)
+        \task $\Lim_{x \to x_0} P(x) = P(x_0)$
+        \task $\Lim_{x \to x_0} \frac{P(x)}{Q(x)} = \frac{P(x_0)}{Q(x_0)}$ si $ \ Q(x_0) \neq 0$
+    \end{tasks}
+    Si $a x^n$ et $b x^m$ sont respectivement les termes du plus haut degré des polynômes $P$ et $Q$, alors :
+    \begin{tasks}(2)
+        \task $\Lim_{x \to +\infty} P(x) = \Lim_{x \to +\infty} a x^n$
+        \task $\Lim_{x \to -\infty} P(x) = \Lim_{x \to -\infty} a x^n$
+        \task $\Lim_{x \to +\infty} \frac{P(x)}{Q(x)} = \Lim_{x \to +\infty} \frac{a x^n}{b x^m}$
+        \task $\Lim_{x \to -\infty} \frac{P(x)}{Q(x)} = \Lim_{x \to -\infty} \frac{a x^n}{b x^m}$
+\end{tasks}
+\end{Prop}
+
+\begin{application}
+    Calculer les limites suivantes :
+    \begin{tasks}(3)
+        \task $\Lim_{x\to +\infty} x^2 + x + 1$
+        \task $\Lim_{x\to +\infty} \displaystyle\frac{2x^4+4x-10}{3x^5-x}$
+        \task $\Lim_{x\to -\infty} \displaystyle\frac{2x^6+4x-10}{3x^6 + 2x + 1}$
+    \end{tasks}
+\end{application}
+
+
+     &   \\
+\hline
+\end{tabular}
+
+
+
+\begin{tabular}{|>{\centering\arraybackslash}p{1.2cm}|>{\raggedright\arraybackslash}p{15.5cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+     & 
+\vspace{-2mm}
+
+
+
+
+
+\mysubsection{3}{Opérations sur les limites}
+ 
+\begin{Prop}
+    Dans tout ce qui suit, $a$ est un nombre réel ou $+\infty$ ou $-\infty$; ($a\in\mathbb{R}\cup \{-\infty;\ +\infty \}$); \\
+    $l$ et $l^{'}$ sont des nombres réels. Ces opérations restent valables pour les limites à droite et à gauche en $a$.
+   \begin{center}
+    \begin{tabular}{|>{\centering}p{0.2\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|p{0.07\textwidth}|}
+    \hline
+         $\Lim_{x\to a} f(x)$ & $l$ & $l$ & $l$ & $+\infty$ & $-\infty$ & $-\infty$ & $+\infty$ \\ 
+         \hline
+          $\Lim_{x\to a} g(x)$ & $l^{'}$ & $+\infty$ & $-\infty$ & $+\infty$ & $-\infty$ & $+\infty$ & $-\infty$ \\ 
+         \hline
+         $\Lim_{x\to a} [f(x) + g(x)]$ & $l + l^{'}$ & $+\infty$ & $-\infty$ & $+\infty$ & $-\infty$ & \multicolumn{2}{c|}{\small Forme indéterminée} \\ 
+         \hline
+    \end{tabular}
+    \vspace{4mm}
+
+   \begin{tabular}{|>{\centering}p{0.17\textwidth}|>{\centering}p{0.04\textwidth}|>{\centering}p{0.06\textwidth}|>{\centering}p{0.06\textwidth}|>{\centering}p{0.06\textwidth}|>{\centering}p{0.06\textwidth}|>{\centering}p{0.04\textwidth}|>{\centering}p{0.04\textwidth}|>{\centering}p{0.04\textwidth}|p{0.1\textwidth}|}
+    \hline
+         $\Lim_{x\to a} f(x)$ & $l$ & $l > 0$ & $l < 0$ & $l >  0$ & $l < 0$ & $+\infty$ & $+\infty$ & $-\infty$ & $0$ \\ 
+         \hline
+          $\Lim_{x\to a} g(x)$ & $l^{'}$ & $+\infty$ & $+\infty$ & $-\infty$ & $-\infty$ & $+\infty$ & $-\infty$ & $-\infty$ & $\pm\infty$  \\ 
+         \hline
+         $\Lim_{x\to a} [f(x)g(x)]$ & $ll^{'}$ & $+\infty$ & $-\infty$ & $-\infty$ & $+\infty$ & $+\infty$ & $+\infty$ & $+\infty$ & F.I \\ 
+         \hline
+    \end{tabular}
+    \vspace{4mm}
+
+    \begin{tabular}{|>{\centering}m{0.15\textwidth}|>{\centering}m{0.1\textwidth}|p{0.05\textwidth}|p{0.05\textwidth}|p{0.05\textwidth}|p{0.05\textwidth}|}
+    \hline
+         $\Lim_{x\to a}g(x)$ & $l\in\mathbb{R}^*$ & $+\infty$ & $-\infty$ & $0^+$ & $0^-$ \\
+    \hline
+         $\Lim_{x\to a}\displaystyle\frac{1}{g(x)}$ & $\displaystyle\frac{1}{l}$ & $0$ & $0$ & $+\infty$ & 
+$-\infty$ \\
+    \hline
+    \end{tabular}
+    \vspace{4mm}
+
+    \begin{tabular}{|>{\centering}p{0.2\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|p{0.07\textwidth}|}
+    \hline
+    $\Lim_{x\to a} f(x)$ & $l$ & $l$ & $+\infty$ & $+\infty$ & $-\infty$ & $-\infty$ \\ 
+     \hline
+      $\Lim_{x\to a} g(x)$ & $l^{'}\neq 0$ & $\pm\infty$ & $l>0$ & $l<0$ & $l>0$ & $l<0$\\ 
+     \hline
+     $\Lim_{x\to a} \displaystyle\frac{f(x)}{g(x)}$ & $\displaystyle\frac{l}{l^{'}}$ & $0$ & $+\infty$ & $-\infty$ & $-\infty$ & $+\infty$  \\ 
+     \hline
+    \end{tabular}
+
+\vspace{4mm}
+
+        \begin{tabular}{|>{\vfill\centering}p{0.2\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|>{\centering}p{0.07\textwidth}|p{0.07\textwidth}|}
+    \hline
+   $\Lim_{x\to a} f(x)$ & $-\infty$ ou $l<0$ & $+\infty$ ou $l>0$ & $+\infty$ ou $l>0$ & $-\infty$ ou $l<0$ & $0$ & $\pm\infty$ \\ 
+     \hline
+      $\Lim_{x\to a} g(x)$ & $0^+$ & $0^+$ & $0^-$ & $0^-$ & $0$ & $\pm\infty$\\ 
+     \hline
+     $\Lim_{x\to a} \displaystyle\frac{f(x)}{g(x)}$ & $-\infty$ & $+\infty$ & $-\infty$ & $+\infty$ & \multicolumn{2}{c|}{Forme indéterminée}  \\ 
+     \hline
+    \end{tabular}
+   \end{center}
+    
+\end{Prop}
+    \begin{application}
+       Calculer les limites suivantes :
+       \begin{tasks}(4)
+           \task $\Lim_{x\to 1^+} \frac{x+1}{x-1}$
+           \task $\Lim_{x\to 0^+} 3x + \displaystyle\frac{1}{\sqrt{x}}$
+           \task $\Lim_{x\to +\infty} x-\sqrt{x}$
+           \task $\Lim_{x\to +\infty} (x^2+1)\frac{1}{x}$
+       \end{tasks}
+   \end{application}
+\mysubsection{4}{Limites d'une fonction irrationnelle}
+\begin{Prop}
+Soit $f$ une fonction numérique définie sur un intervalle de la forme $[a ; +\infty[$ (où $a$ est un réel) telle que:
+\[
+\forall x \in [a; +\infty[, \ f(x) \geq 0
+\]
+Si $\Lim_{x \to +\infty} f(x) = \ell$ et $\ell \geq 0$, alors:
+\[
+\Lim_{x \to +\infty} \sqrt{f(x)} = \sqrt{\ell}
+\]
+Si $\Lim_{x \to +\infty} f(x) = +\infty$, alors:
+\[
+\Lim_{x \to +\infty} \sqrt{f(x)} = +\infty
+\]
+
+\end{Prop}
+
+
+
+
+
+& \\
+\hline
+
+\end{tabular}
+
+\begin{tabular}{|>{\centering\arraybackslash}p{1.2cm}|>{\raggedright\arraybackslash}p{15.5cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+
+&
+\vspace{0mm}
+
+
+\begin{application}
+    Calculer les limites suivantes :
+    \begin{tasks}(3)
+        \task $\sqrt{2x^2+x+1}$
+        \task $\sqrt{\displaystyle\frac{2x}{x+1}}$
+        \task $\sqrt{\displaystyle\frac{x}{x^2+4}}$
+    \end{tasks}
+\end{application}
+
+\mysubsection{5}{Limite de fonctions trigonométriques}
+
+\begin{Prop}
+    On a les limites suivantes : 
+    \begin{tasks}(3)
+        \task $\Lim_{x\to 0} \sin{x} = 0$
+        \task*(2) Pour tout réel $a$, $\Lim_{x\to a} \sin x = \sin a$
+        \task $\Lim_{x\to 0} \displaystyle\frac{\sin{x}}{x} = 1$
+        \task*(2) Pour tout réel $a$, $\Lim_{x\to a} \displaystyle\frac{\sin(ax)}{x} = a$
+        
+        \task $\Lim_{x\to 0} \cos{x} = 1$
+        \task*(2) Pour tout réel $a$, $\Lim_{x\to a} \cos x = \cos a$
+        \task $\Lim_{x\to 0} \displaystyle\frac{1-\cos{x}}{x^2} = \displaystyle\frac{1}{2}$
+        \task*(2)  $\Lim_{x\to 0} \displaystyle\frac{\tan{x}}{x} = 1$
+        
+    \end{tasks}
+\end{Prop}
+
+\begin{application}
+    Calculer les limites suivantes :
+    \begin{tasks}(3)
+        \task $\Lim_{x\to 0}\displaystyle\frac{\sin(2x)}{5x}$
+        \task $\Lim_{x\to 0}\displaystyle\frac{x}{\sin{x}}$
+        \task $\Lim_{x\to 0}\displaystyle\frac{1-\cos(x)}{x}$
+        \task $\Lim_{x\to 0}\displaystyle\frac{\sin(x)}{\tan{x}}$
+    \end{tasks}
+\end{application}
+
+\mysubsection{6}{Limite et ordre}
+\begin{Prop}
+    Soit $a$ et $l$ deux réels et $x_0\in\mathbb{R}\cup\{+\infty;\ -\infty\}$.\\
+    Soit $f,\ u$ et $v$ des fonction numériques définie sur un voisinage de $x_0$ $I$.
+    \begin{enumerate}
+        \item Si $\begin{cases}
+                ( \forall x\in I) ;\ u( x) \leq f( x)\\
+                \Lim_{x\to x_0} u(x) = +\infty
+                \end{cases}$ alors, $\Lim_{x\to x_0} f(x) = +\infty$
+        \item Si $\begin{cases}
+                ( \forall x\in I) ;\ f( x) \leq u( x)\\
+                \Lim_{x\to x_0} u(x) = -\infty
+                \end{cases}$ alors, $\Lim_{x\to x_0} f(x) = -\infty$
+         \item Si $\begin{cases}
+                ( \forall x\in I) ;\ |f( x) - l |\leq u( x)\\
+                \Lim_{x\to x_0} u(x) = 0
+                \end{cases}$ alors, $\Lim_{x\to x_0} f(x) = l$
+         \item Si $\begin{cases}
+                ( \forall x\in I) ;\ u(x) \leq f( x) \leq v( x)\\
+                \Lim_{x\to x_0} u(x) = \Lim_{x\to x_0} v(x) = l
+                \end{cases}$ alors, $\Lim_{x\to x_0} f(x) = l$ 
+    \end{enumerate}
+\end{Prop}
+
+\begin{application}
+    Calculer les limites suivantes : 
+    \begin{tasks}(3)
+        \task $\Lim_{x\to +\infty} 2x + \cos^2(x)$
+        \task $\Lim_{x\to 0} x^2\sin(\displaystyle\frac{1}{x})$
+        \task $\Lim_{x\to 0} 1 + x^2\cos{\frac{1}{x}}$
+        \task $\Lim_{x\to +\infty} \displaystyle\frac{\sin{x}}{x}$
+    \end{tasks}
+\end{application}
+
+& \\
+
+\hline
+
+\end{tabular}
+
+
+
+\end{document}

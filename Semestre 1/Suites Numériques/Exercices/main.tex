@@ -1,0 +1,126 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[top=2cm,left=1.5cm,right=1cm,bottom=2cm]{geometry}
+\usepackage{amssymb,mathtools,amsthm}
+\usepackage{fourier}
+\usepackage{xcolor}
+\usepackage{multicol, array, fancyhdr}
+\usepackage{tasks}
+\newcommand{\Lim}{\displaystyle\lim}
+\renewcommand{\columnseprule}{1pt}
+\renewcommand{\arraystretch}{1.5}
+% \renewcommand{\frac}[2]{\displaystyle\frac{#1}{#2}}
+
+
+%======================================================
+\newtheoremstyle{mystyle}
+{\topsep}% espace avant
+{\topsep}% espace après
+{\upshape}% police du corps du théorème
+{}% indentation (vide pour rien, \parindent)
+{\bfseries\sffamily}% police du titre du théorème
+{ :}% ponctuation après le théorème
+{ }% après le titre du théorème (espace ou \newline)
+{%
+    \rule[0.5\baselineskip]{0.5\textwidth}{1pt}%
+    \newline\fcolorbox{black}{white}{%
+    \thmname{#1}\thmnumber{ \textup{#2}}\thmnote{ \textnormal{(#3)}}%
+}%
+\medskip%
+}% spécifications du titre
+
+\theoremstyle{mystyle}
+\newtheorem{exo}{Exercice}
+
+
+%======================================================
+
+
+
+\begin{document}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyhead[L]{Lycée : Zitoun \hspace{1.5cm} Année scolaire : 2024-2025} % Left header
+\fancyhead[C]{ \hspace{4cm} Niveau : 2BAC PC} % Right-Center header
+\fancyhead[R]{Prof. Othmane Laksoumi} % Right header
+\fancyfoot[C]{\thepage} % Footer
+
+
+\begin{center}
+    \textbf{\Large Dérivation et étude de fonctions numériques}
+\end{center}
+\begin{multicols*}{2}
+
+\begin{exo}
+Calculer les limites suivantes :
+\begin{enumerate}
+	\item $\Lim_{n \to +\infty} n^3 + \frac{3}{\sqrt{n}} - \dfrac{1}{n^8} + 8 \ \ ; \ \ \Lim_{n \to +\infty} -n^3 + 6n^2 - n + 9$
+	\item $\Lim_{n \to +\infty} \frac{-2n + n^2 + 1}{n^3 - 6n^2 + n - 1} \ \ ; \ \ \Lim_{n \to +\infty} n - 5\sqrt{n}$
+	\item $\Lim_{n \to +\infty} n^2 - n + (-1)^n \ \ ; \ \ \Lim_{n \to +\infty} \frac{5 +2\sqrt{n}}{2 - 3\sqrt{n}}$
+	\item $\Lim_{n \to +\infty} \sqrt{n^2 + 1} - n \ \ ; \ \ \Lim_{n \to +\infty} (n - 2) \frac{1}{\sqrt[5]{n^3}}$
+\end{enumerate}
+\end{exo}
+
+\begin{exo}
+Soit \( (u_n) \) la suite numérique définie par :
+\[
+u_0 = -1 \quad \text{et} \quad u_{n+1} = \frac{9}{6 - u_n}
+\]
+\begin{enumerate}
+	\item Montrer par récurrence que : \( (\forall n \in \mathbb{N}) : u_n < 3 \).
+	\item Étudier la monotonie de la suite \( (u_n) \).
+	\item On considère la suite \( (v_n) \) définie par :
+$$(\forall n \in \mathbb{N}) : v_n = \frac{1}{u_n - 3}$$
+		\begin{enumerate}
+			\item Montrer que \( (v_n) \) est une suite arithmétique. Préciser la raison et le premier terme.
+			\item Exprimer \( v_n \) puis \( u_n \) en fonction de \( n \).
+		\end{enumerate}
+\end{enumerate}
+	\item
+		\begin{enumerate}
+			\item  Calculer en fonction de \( n \) la somme : $$S_n = v_1 + v_2 + \ldots + v_n$$
+			\item En déduire la limite : \( \Lim_{n \to +\infty} S_n \).
+		\end{enumerate}
+\end{exo}
+
+\begin{exo}
+
+On considère la suite $(u_n)$ définie par $ u_0 = 1 $ et pour tout $ n \in \mathbb{N} $ :  
+$ u_{n+1} = \frac{3u_n + 2}{u_n + 2} $  
+
+1) Montrer par récurrence que : $ (\forall n \in \mathbb{N}) \, 1 \leq u_n < 2 $.  
+
+2) Montrer que :  
+$ (\forall n \in \mathbb{N}) \, u_{n+1} - u_n = \frac{-(u_n + 1)(u_n - 2)}{u_n + 2}. $  
+
+3) Étudier la monotonie de la suite $(u_n)$.  
+
+4) En déduire que la suite $(u_n)$ est convergente.  
+
+\end{exo}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols*}
+
+
+
+\end{document}
