@@ -1,0 +1,386 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[right=0.5cm, left=0.5cm,top=0.5cm,bottom=0.5cm]{geometry}
+\usepackage{enumitem}
+\usepackage{forest}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{graphicx}
+\usepackage{array, tasks}
+\usepackage{blindtext}
+\usepackage{fontspec}
+\usepackage{amsmath,amsfonts,amssymb,mathrsfs,amsthm}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage[font={bf}]{caption}
+% \captionsetup[table]{box=colorbox,boxcolor=orange!20}
+\usepackage{float}
+\usepackage{esvect}
+\usepackage{tabularx}
+\usepackage{pifont}
+\usepackage{colortbl}
+ \usepackage{fancybox}
+ \mathversion{bold}
+ \usepackage{pgfplots}
+ % \usepackage[utf8]{inputenc}
+\usepackage{tikz}
+ \usepackage[tikz]{bclogo}%
+ \usepackage{mathpazo}
+\usepackage{ulem}
+\usepackage{yagusylo}
+\usepackage{textcomp}\usepackage{blindtext}
+\usepackage{multicol}
+\usepackage{varwidth}
+\usetikzlibrary{calc,intersections}
+\usepackage{pgfplots}
+%\usepackage{fourier}
+\pgfplotsset{compat=1.11}
+\usepackage{tkz-tab}
+\usepackage{xcolor}
+\usepackage{color}
+\usetikzlibrary{calc}
+\mathchardef\times="2202
+\usepackage[most]{tcolorbox}
+\definecolor{lightgray}{gray}{0.9}
+\definecolor{ocre}{RGB}{0,244,244} 
+\definecolor{head}{RGB}{255,211,204}
+\definecolor{browndark}{RGB}{105,79,56}
+%\RequirePackage[framemethod=default]{mdframed}
+\usepackage{tikz}
+\usetikzlibrary{calc,patterns,decorations.pathmorphing,arrows.meta,decorations.markings}
+\usetikzlibrary{arrows.meta}
+\makeatletter
+\tcbuselibrary{skins,breakable,xparse}
+\tcbset{%
+  save height/.code={%
+    \tcbset{breakable}%
+    \providecommand{#1}{2cm}%
+    \def\tcb@split@start{%
+      \tcb@breakat@init%
+      \tcb@comp@h@page%
+      \def\tcb@ch{%
+        \tcbset{height=\tcb@h@page}%
+        \tcbdimto#1{#1+\tcb@h@page-\tcb@natheight}%
+        \immediate\write\@auxout{\string\gdef\string#1{#1}}%
+        \tcb@ch%
+      }%
+      \tcb@drawcolorbox@standalone%
+    }%
+  }%
+}
+\newcommand{\Lim}{\displaystyle\lim}
+\makeatother
+\newcommand{\oij}{$\left( \text{O};\vv{i},\vv{j} , \vv{k}\right)$}
+\colorlet{darkred}{red!30!black}
+\newcommand{\red}[1]{\textcolor{darkred}{ #1}}
+\newcommand{\rr}{\mathbb{R}}
+\renewcommand{\baselinestretch}{1.2}
+ \setlength{\arrayrulewidth}{1.25pt}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{minitoc}
+\usepackage{ulem}
+%--------------------------------------------------------------
+
+\usetikzlibrary{decorations.pathmorphing}
+\tcbuselibrary{skins}
+
+%%%%%%%%%%%
+%-------------------------------------------------------------------------
+\tcbset{
+        enhanced,
+        colback=white,
+        boxrule=0.1pt,
+        colframe=brown!10,
+        fonttitle=\bfseries
+       }
+\definecolor{problemblue}{RGB}{100,134,158}
+\definecolor{idiomsgreen}{RGB}{0,162,0}
+\definecolor{exercisebgblue}{RGB}{192,232,252}
+\definecolor{darkbrown}{rgb}{0.4, 0.26, 0.13}
+
+\newcommand*{\arraycolor}[1]{\protect\leavevmode\color{#1}}
+\newcolumntype{A}{>{\columncolor{blue!50!white}}c}
+\newcolumntype{B}{>{\columncolor{LightGoldenrod}}c}
+\newcolumntype{C}{>{\columncolor{FireBrick!50}}c}
+\newcolumntype{D}{>{\columncolor{Gray!42}}c}
+
+\newcounter{mysection}
+\newcounter{mysubsection}
+\newcommand{\mysection}[1]{%
+    \stepcounter{mysection} % Increment the counter
+    \textcolor{red}{\LARGE\themysection. #1 :}
+}
+\newcommand{\mysubsection}[2]{
+    \stepcounter{mysubsection}
+    \textcolor{red}{\large \themysection.#1. #2 :}
+}
+% \textcolor{red}{\LARGE\bfseries 1. Les équation du deuxiéme degrée :}
+
+%------------------------------------------------------
+\newtcolorbox[auto counter]{Definition}{enhanced,
+before skip=2mm,after skip=2mm,
+colback=yellow!20!white,colframe=lime,boxrule=0.2mm,
+attach boxed title to top left =
+    {xshift=0.6cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=lime]
+                            ([yshift=-1mm,xshift=-1mm]frame.north west)  
+                            arc[start angle=0,end angle=180,radius=1mm]
+                            ([yshift=-1mm,xshift=1mm]frame.north east)
+                            arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=lime,right color = lime,
+                            middle color = lime]
+                            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east) 
+                            -- (frame.south east) -- (frame.south west)
+                            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                            [sharp corners]-- cycle;
+                            },interior engine=empty,
+                    },
+fonttitle=\bfseries\sffamily,
+title={Definition ~\thetcbcounter}}
+%------------------------------------------------------
+\newtcolorbox[auto counter]{Proposition}{enhanced,
+before skip=2mm,after skip=2mm,
+colback=yellow!20!white,colframe=blue,boxrule=0.2mm,
+attach boxed title to top left =
+    {xshift=0.6cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=blue]
+                            ([yshift=-1mm,xshift=-1mm]frame.north west)  
+                            arc[start angle=0,end angle=180,radius=1mm]
+                            ([yshift=-1mm,xshift=1mm]frame.north east)
+                            arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=blue,right color = blue,
+                            middle color = blue]
+                            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east) 
+                            -- (frame.south east) -- (frame.south west)
+                            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                            [sharp corners]-- cycle;
+                            },interior engine=empty,
+                    },
+fonttitle=\bfseries\sffamily,
+title={Proposition ~\thetcbcounter}}
+%------------------------------------------------------
+\newtcolorbox[auto counter]{Thm}[1]{enhanced,
+before skip=2mm,after skip=2mm,
+colback=yellow!20!white,colframe=red,boxrule=0.2mm,
+attach boxed title to top left =
+    {xshift=0.6cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+                        \path[fill=red]
+                            ([yshift=-1mm,xshift=-1mm]frame.north west)  
+                            arc[start angle=0,end angle=180,radius=1mm]
+                            ([yshift=-1mm,xshift=1mm]frame.north east)
+                            arc[start angle=180,end angle=0,radius=1mm];
+                        \path[left color=red,right color = red,
+                            middle color = red]
+                            ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+                            [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east) 
+                            -- (frame.south east) -- (frame.south west)
+                            -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+                            [sharp corners]-- cycle;
+                            },interior engine=empty,
+                    },
+fonttitle=\bfseries\sffamily,
+title={#1 ~\thetcbcounter}}
+%------------------------------------------------------
+\newtcolorbox[auto counter]{exemple}{
+  % breakable,
+  enhanced,
+  colback=white,
+  boxrule=0pt,
+  arc=0pt,
+  outer arc=0pt,
+  title=Exemple ~\thetcbcounter,
+  fonttitle=\bfseries\sffamily\large\strut,
+  coltitle=problemblue,
+  colbacktitle=problemblue,
+  title style={
+left color=exercisebgblue,
+    right color=white,
+    middle color=exercisebgblue  
+  },
+  overlay={
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.south east);
+    \draw[line width=1pt,problemblue] (frame.north west) -- (frame.north east);
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.north west);
+    \draw[line width=1pt,problemblue] (frame.south east) -- (frame.north east);
+  }
+}
+%----------------------------------------------------
+\newtcolorbox[auto counter]{application}{
+  % breakable,
+  enhanced,
+  colback=white,
+  boxrule=0pt,
+  arc=0pt,
+  outer arc=0pt,
+  title=Application ~\thetcbcounter,
+  fonttitle=\bfseries\sffamily\large\strut,
+  coltitle=problemblue,
+  colbacktitle=problemblue,
+  title style={
+left color=exercisebgblue,
+    right color=white,
+    middle color=exercisebgblue  
+  },
+  overlay={
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.south east);
+    \draw[line width=1pt,problemblue] (frame.north west) -- (frame.north east);
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.north west);
+    \draw[line width=1pt,problemblue] (frame.south east) -- (frame.north east);
+  }
+}
+%----------------------------------------------------
+\newtcolorbox[auto counter]{Activite}{
+  % breakable,
+  enhanced,
+  colback=white,
+  boxrule=0pt,
+  arc=0pt,
+  outer arc=0pt,
+  title=Activité ~\thetcbcounter,
+  fonttitle=\bfseries\sffamily\large\strut,
+  coltitle=problemblue,
+  colbacktitle=problemblue,
+  title style={
+left color=yellow!50!white,
+    right color=white,
+    middle color=yellow!20!white  
+  },
+  overlay={
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.south east);
+    \draw[line width=1pt,problemblue] (frame.north west) -- (frame.north east);
+    \draw[line width=1pt,problemblue] (frame.south west) -- (frame.north west);
+    \draw[line width=1pt,problemblue] (frame.south east) -- (frame.north east);
+  }
+}
+%---------------------------------------------
+\newtcolorbox{mybox}[2]{enhanced,breakable,
+    before skip=2mm,after skip=2mm,
+    colback=white,colframe=#2!30!blue,boxrule=0.3mm,rightrule=0.3mm,
+    attach boxed title to top center={xshift=0cm,yshift*=1mm-\tcboxedtitleheight},
+    varwidth boxed title*=-3cm,
+    boxed title style={frame code={
+    \path[fill=#2!30!black]
+    ([yshift=-1mm,xshift=-1mm]frame.north west)
+    arc[start angle=0,end angle=180,radius=1mm]
+    ([yshift=-1mm,xshift=1mm]frame.north east)
+    arc[start angle=180,end angle=0,radius=1mm];
+    \path[draw=black,line width=1pt,left color=#2!1!white,right color=#2!1!blue!65,
+    middle color=#2!1!green]
+    ([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+    [rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+    -- (frame.south east) -- (frame.south west)
+    -- ([xshift=-1mm,yshift=-1mm]frame.north west)
+    [sharp corners]-- cycle;
+    },interior engine=empty,
+    },
+title=#1,coltitle=black,fonttitle=\sffamily}
+%---------------------------------------------
+\newtcolorbox{boxone}{%
+    enhanced,
+    colback=brown!10,
+    boxrule=0pt,
+    sharp corners,
+    drop lifted shadow,
+    frame hidden,
+    fontupper=\bfseries,
+    notitle,
+    overlay={%
+        \draw[Circle-Circle, brown!70!black, line width=2pt](frame.north west)--(frame.south west); 
+        \draw[Circle-Circle, brown!70!black, line width=2pt](frame.north east)--(frame.south east);}
+    }
+
+    \tikzset{ midd/.style={
+decoration={
+markings,
+mark=at position 0.5 with {%
+\makebox[4pt][r]{\arrow{triangle 45}},
+},
+},
+postaction={decorate},{Circle[]}-{Circle[]}
+},}%
+\tikzset{ midd/.style={
+decoration={
+markings,
+% mark=at position 0.5 with {%
+% \makebox[4pt][r]{\arrow{triangle 45}},
+% },
+},
+% postaction={decorate},{Circle[]}-{Circle[]}
+},}%
+    
+\begin{document}
+
+\begin{tcolorbox}[title=\textcolor{blue}{\shadowbox{ Prof : Othmane Laksoumi}}
+\hfill
+\textcolor{blue}{\shadowbox{ Dérivation et étude de fonction numériques }}]
+
+\end{tcolorbox}
+
+\begin{mybox}{Lycée Qualifiant Zitoun}{gray}
+    \begin{minipage}{8cm}
+    \textcolor{darkbrown}{Année scolaire : } 2024-2025 \\
+    \textcolor{darkbrown}{Niveau : } 2 Bac Sciences Physiques \\
+    \textcolor{darkbrown}{Durée totale : } $10h$
+    \end{minipage}
+\end{mybox}
+
+\begin{boxone}
+{\Large\ding{45}}
+\textcolor{red}{\large Contenus du programme :}
+\begin{itemize}
+    \item Continuité et dérivabilité.
+    \item Dérivabilité de la composée de deux fonctions dérivables.
+    \item Dérivée de la fonction réciproque.
+    \item Dérivée de la fonction $x\mapsto \sqrt[n]{x}\ (n\geq 1)$.
+    \item Exemples d'études de fonctions.
+\end{itemize}
+
+{\Large\ding{45}}
+\textcolor{red}{\large Les capacités attendues :}
+\begin{itemize}
+    \item Calculer les dérivées des fonctions usuelles.
+    \item Déterminer la monotonie d'une fonction à partir de son tableau de variation ou de sa représentation graphique.
+    \item Résoudre graphiquement des équations de la forme $f(x) = g(x)$ et des inéquations de la forme $f(x) \leq g(x)$.
+    \item Déterminer la monotonie de la fonction réciproque d'une fonction continue et strictement monotone et représenter graphiquement la fonction réciproque.
+    \item Déterminer le nombre dérivé de la fonction réciproque d'une fonction en un point.
+    \item Résoudre des problémes concernant les valeurs miminales et valeurs maximales.
+    \item Étudier et représenter des fonctions ratinnelles et des fonctions trigonométriques.
+\end{itemize}
+
+{\Large\ding{45}}
+\textcolor{red}{\large Recommandations pédagogiques :} 
+  \begin{itemize}
+    \item On rappellera la notion de dérivation et ses applications à partir d’activités variées faisant apparaître son importance dans l’étude locale et globale des fonctions au programme surtout l’approximation locale d’une fonction, l’étude du sens de variation d’une fonction sur un intervalle, la détermination des extrema et l’étude du signe d’une fonction ou d’une égalité algébrique sur un intervalle ou la concavité de la courbe d’une fonction numérique..., ce sera également une occasion pour rappeler la propriété caractéristique d’une fonction constante ou strictement monotone sur un intervalle.
+    \item Les fonctions réciproques des fonctions trigonométriques usuelles sont hors programme.
+    \item À partir de l’étude d’exemples de fonctions polynômes, de fonctions rationnelles, de fonctions trigonométriques et de fonctions irrationnelles on maintiendra les acquis des élèves relatifs à la dérivation, aux limites, à l’approximation par une fonction linéaire, aux éléments de symétrie de la courbe d’une fonction, à l’étude des branches infinies et à la résolution graphique de quelques équations et inéquations .......
+    \item On se limitera à l'étude de quelques exemples de fonctions irrationnelles dont le signe de la dérivée ne pose pas de difficulté; à cette eccasion on abordera les équations irrationnelles à partir d'exemples.
+    \item Utiliser l'écriture différentielle $dy = f^{\prime}(x)dx$.
+    \item L'étude des fonctions de la forme $x\mapsto \sqrt[n]{u(x)}$ où $(n\geq 3)$ et $u$ une fonction positive, est hors programme, toutefois on se limitera à la détermination de leurs dérivées.
+  \end{itemize}
+\end{boxone}
+
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{17cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+\rowcolor{head}
+
+\centering Contenu du cour &
+ Durée \\
+\hline
+ 
+\vspace{1mm}
+\mysection{Dérivabilité d'une fonction numérique (Rappels)}
+
+\end{tabular}
+
+\end{document} 
