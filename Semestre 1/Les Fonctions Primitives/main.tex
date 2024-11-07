@@ -191,8 +191,8 @@ attach boxed title to top left =
 fonttitle=\bfseries\sffamily,
 title={#1 ~\thetcbcounter}}
 %------------------------------------------------------
-\newtcolorbox[auto counter]{exemple}{
-  % breakable,
+\newtcolorbox[auto counter]{Exemple}{
+  % breakable,1
   enhanced,
   colback=white,
   boxrule=0pt,
@@ -322,7 +322,7 @@ markings,
 
 \begin{tcolorbox}[title=\textcolor{blue}{\shadowbox{ Prof : Othmane Laksoumi}}
 \hfill
-\textcolor{blue}{\shadowbox{ Dérivation et étude de fonction numériques }}]
+\textcolor{blue}{\shadowbox{Les fonctions primitives}}]
 
 \end{tcolorbox}
 
@@ -379,8 +379,60 @@ markings,
 \hline
  
 \vspace{1mm}
-\mysection{Dérivabilité d'une fonction numérique (Rappels)}
+\mysection{Primitive d'une fonction sur un intervalle}
 
+\begin{Definition}
+Soit $f$ et $F$ deux fonctions définies sur un intervalle $I$ de $\mathbb{R}$.
+
+On dit que la fonction $F$ est une primitive de la fonction $f$ sur $I$ si :
+$$F \text{est dérivable sur } I \text{et pour tout } x\in I \ : \ F^{\prime}(x) = f(x)$$
+\end{Definition}
+
+
+\begin{Exemple}
+On considére les fonctions $f$ et $F$ définies sur l'intervalle $I = ]0;+\infty[$ par :
+$$f(x) = 1 + 2x + \dfrac{1}{\sqrt{x}} \text{ et } F(x) = x + x^2 + 2\sqrt{x}$$
+La fonction $F$ est une primitive de la fonction $f$ sur $I$ car $F$ est dérivable sur $I$ et pour tout $x\in I$ :
+$$F^{\prime} = (x + x^2 + 2\sqrt{x})^{\prime} = 1 + 2x + \dfrac{1}{\sqrt{x}} = f(x)$$
+\end{Exemple}
+
+\mysection{Primitive d'une fonction continue}
+
+\begin{Proposition}
+Toute fonction continue sur un intervalle $I$ admet une primitive définie sur cet intervalle.
+\end{Proposition}
+
+\begin{Proposition}
+Soit $f$ une fonction continue sur un intervalle $I$ de $\mathbb{R}$.
+\begin{itemize}
+	\item Si $F$ est une primitive de la fonction $f$ sur $I$, alors les primitives de $f$ sont les fonctions $x\mapsto F(x) + c$ où $c$ est une constante réelle.
+	\item Pour tout $x_0\in I$ et $y_0\in\mathbb{R}$, il existe une unique primitive $G$ de $f$ sur $I$ vérifiant : $G(x_0) = y_0$.
+\end{itemize}
+
+\end{Proposition}
+
+
+&\\
+\hline
 \end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document} 
