@@ -330,7 +330,7 @@ markings,
     \begin{minipage}{8cm}
     \textcolor{darkbrown}{Année scolaire : } 2024-2025 \\
     \textcolor{darkbrown}{Niveau : } 2 Bac Sciences Physiques \\
-    \textcolor{darkbrown}{Durée totale : } $10h$
+    \textcolor{darkbrown}{Durée totale : } $2h$
     \end{minipage}
 \end{mybox}
 
@@ -338,34 +338,21 @@ markings,
 {\Large\ding{45}}
 \textcolor{red}{\large Contenus du programme :}
 \begin{itemize}
-    \item Continuité et dérivabilité.
-    \item Dérivabilité de la composée de deux fonctions dérivables.
-    \item Dérivée de la fonction réciproque.
-    \item Dérivée de la fonction $x\mapsto \sqrt[n]{x}\ (n\geq 1)$.
-    \item Exemples d'études de fonctions.
+   \item Fonctions primitives d'une fonction continue sur un intervalle;
+   \item Fonctions primitives de la somme de deux fonctions; fonctions primitives du produit d'une fonction par un nombre réel.
 \end{itemize}
 
 {\Large\ding{45}}
 \textcolor{red}{\large Les capacités attendues :}
 \begin{itemize}
-    \item Calculer les dérivées des fonctions usuelles.
-    \item Déterminer la monotonie d'une fonction à partir de son tableau de variation ou de sa représentation graphique.
-    \item Résoudre graphiquement des équations de la forme $f(x) = g(x)$ et des inéquations de la forme $f(x) \leq g(x)$.
-    \item Déterminer la monotonie de la fonction réciproque d'une fonction continue et strictement monotone et représenter graphiquement la fonction réciproque.
-    \item Déterminer le nombre dérivé de la fonction réciproque d'une fonction en un point.
-    \item Résoudre des problémes concernant les valeurs miminales et valeurs maximales.
-    \item Étudier et représenter des fonctions ratinnelles et des fonctions trigonométriques.
+    \item Déterminer les fonctions primitives des fonction usuelles;
+    \item Utiliser les formules de dérivation pour déterminer les fonctions primitives d'une fonction sur un intervalle.
 \end{itemize}
 
 {\Large\ding{45}}
 \textcolor{red}{\large Recommandations pédagogiques :} 
   \begin{itemize}
-    \item On rappellera la notion de dérivation et ses applications à partir d’activités variées faisant apparaître son importance dans l’étude locale et globale des fonctions au programme surtout l’approximation locale d’une fonction, l’étude du sens de variation d’une fonction sur un intervalle, la détermination des extrema et l’étude du signe d’une fonction ou d’une égalité algébrique sur un intervalle ou la concavité de la courbe d’une fonction numérique..., ce sera également une occasion pour rappeler la propriété caractéristique d’une fonction constante ou strictement monotone sur un intervalle.
-    \item Les fonctions réciproques des fonctions trigonométriques usuelles sont hors programme.
-    \item À partir de l’étude d’exemples de fonctions polynômes, de fonctions rationnelles, de fonctions trigonométriques et de fonctions irrationnelles on maintiendra les acquis des élèves relatifs à la dérivation, aux limites, à l’approximation par une fonction linéaire, aux éléments de symétrie de la courbe d’une fonction, à l’étude des branches infinies et à la résolution graphique de quelques équations et inéquations .......
-    \item On se limitera à l'étude de quelques exemples de fonctions irrationnelles dont le signe de la dérivée ne pose pas de difficulté; à cette eccasion on abordera les équations irrationnelles à partir d'exemples.
-    \item Utiliser l'écriture différentielle $dy = f^{\prime}(x)dx$.
-    \item L'étude des fonctions de la forme $x\mapsto \sqrt[n]{u(x)}$ où $(n\geq 3)$ et $u$ une fonction positive, est hors programme, toutefois on se limitera à la détermination de leurs dérivées.
+    \item On déterminera les fonctions primitives des fonctions usuelles à partir de la lecture croisée du tableau des dérivées de ces fonctions.
   \end{itemize}
 \end{boxone}
 
@@ -393,7 +380,7 @@ $$F \text{est dérivable sur } I \text{et pour tout } x\in I \ : \ F^{\prime}(x)
 On considére les fonctions $f$ et $F$ définies sur l'intervalle $I = ]0;+\infty[$ par :
 $$f(x) = 1 + 2x + \dfrac{1}{\sqrt{x}} \text{ et } F(x) = x + x^2 + 2\sqrt{x}$$
 La fonction $F$ est une primitive de la fonction $f$ sur $I$ car $F$ est dérivable sur $I$ et pour tout $x\in I$ :
-$$F^{\prime} = (x + x^2 + 2\sqrt{x})^{\prime} = 1 + 2x + \dfrac{1}{\sqrt{x}} = f(x)$$
+$$F^{\prime}(x) = (x + x^2 + 2\sqrt{x})^{\prime} = 1 + 2x + \dfrac{1}{\sqrt{x}} = f(x)$$
 \end{Exemple}
 
 \mysection{Primitive d'une fonction continue}
@@ -408,13 +395,109 @@ Soit $f$ une fonction continue sur un intervalle $I$ de $\mathbb{R}$.
 	\item Si $F$ est une primitive de la fonction $f$ sur $I$, alors les primitives de $f$ sont les fonctions $x\mapsto F(x) + c$ où $c$ est une constante réelle.
 	\item Pour tout $x_0\in I$ et $y_0\in\mathbb{R}$, il existe une unique primitive $G$ de $f$ sur $I$ vérifiant : $G(x_0) = y_0$.
 \end{itemize}
-
 \end{Proposition}
+
+\begin{Exemple}
+Soit $f$ la fonction définie sur l'intervalle $I = ]0;+\infty[$ par : $f(x) = 1 + 2x + \dfrac{1}{\sqrt{x}}$. On a la fonction $F$ défnine sur $I$ par : $F(x) = x + x^2 + 2\sqrt{x}$ est une fonction dérivable de $f$ sur $I$.\\
+Donc les primitives de la fonction $f$ sur l'intervalle $I$ sont les fonction $x\mapsto x + x^2 + 2\sqrt{x} + c$ où $c$ une constante réel.
+Soit $G$ la primitive de la fonction $f$ sur $I$ qui s'annule en $1$.
+
+Donc $G(x) = x + x^2  + 2\sqrt{x} + c$ avec $G(1) = 0$.
+
+On a alors $G(1) = 0 \Longleftrightarrow 1 + 1^2 + 2\sqrt{1} + c = 0\Longleftrightarrow 4 + c = 0\Longleftrightarrow c = -4$.\\
+Ainsi : $$(\forall x\in]0;+\infty[) ; G(x) = x + x^2 + 2\sqrt{x} - 4$$
+\end{Exemple}
+
+\mysection{Opérations sur les primitives}
+\begin{Proposition}
+Si $F$ et $G$ sont respectivement des primitives des fonction $f$ et $g$ sur un intervalle  $I$ alors :
+\begin{itemize}
+	\item $F+G$ est une primitive de la fonction $f+g$ sur l'intervalle $I$.
+	\item Pour tout $(\alpha;\beta)\in\mathbb{R}^2$, $\alpha F + \beta G$ est une primitive de $\alpha f + \beta g$ sur l'intervalle $I$.
+\end{itemize}
+\end{Proposition}
+&\\
+\hline
+\end{tabular}
+
+
+\begin{tabular}{|>{\raggedright\arraybackslash}p{17cm}|>{\centering\arraybackslash}p{0.8cm}|}
+\hline
+\vspace{1mm}
+\mysection{Primitives usuelles}
+
+\begin{tabular}{|>{\centering}m{0.25\textwidth}|>{\centering}m{0.25\textwidth}|>{}m{0.25\textwidth}|}
+\hline
+    La fonction $f$ & Les primitives $F$ de $f^{\prime}$ & L'intervalle $I$\\
+\hline
+     $0$ & $c \ \ (c\in\mathbb{R})$ & $\mathbb{R}$ \\
+\hline
+     $x\mapsto a \ (a\in\mathbb{R}^*)$ & $x\mapsto ax + c$ & $\mathbb{R}$ \\
+\hline
+     $x\mapsto x^n \ (n\in\mathbb{N}^*)$ & $x\mapsto \dfrac{x^{n+1}}{n+1} + c$ & $\mathbb{R}$ \\
+\hline
+     $x\mapsto \dfrac{1}{x^n} \ (n\in\mathbb{N}^* - \{1\})$ & $x\mapsto \dfrac{1}{(1-n)x^{n - 1}} + c$ & $\mathbb{R}^*_{+}$ ou $\mathbb{R}^*_{-}$ \\
+\hline
+     $x\mapsto x^r \ (n\in\mathbb{Q}^* - \{1\})$ & $x\mapsto \dfrac{x^{r+1}}{r+1} + c$ & $\mathbb{R}^*_+$ \\
+\hline
+	$x\mapsto \sqrt[n]{x} \ (n\in\mathbb{N}^{*})$ & $x\mapsto \dfrac{n}{n+1}\sqrt[n]{x^{n+1}} + c$ & $\mathbb{R}^{+}$ \\
+\hline
+     $x\mapsto \sin{x}$ & $x\mapsto -\cos{x} + c$ & $\mathbb{R}$ \\
+\hline
+     $x\mapsto \cos{x}$ & $x\mapsto\sin{x} + c$ & $\mathbb{R}$ \\
+\hline
+     $x\mapsto 1 + \tan^{2}{x} = \dfrac{1}{\cos^{2}(x)}$ & $x\mapsto \tan{x}$ & $\left]-\displaystyle\frac{\pi}{2} + k\pi;\displaystyle\frac{\pi}{2} + k\pi\right[ \ (k\in\mathbb{Z})$ \\
+\hline
+     $x\mapsto \sin(ax + b) \ (a\in\mathbb{R}^*)$ & $x\mapsto -\dfrac{1}{a}\cos(ax + b)$ & $\mathbb{R}$ \\
+\hline
+     $x\mapsto \cos(ax + b) \ (a\in\mathbb{R}^*)$ & $x\mapsto \dfrac{1}{a}\sin(ax + b)$ & $\mathbb{R}$ \\
+\hline
+	$u^{\prime}v + uv^{\prime}$ & $uv + c$ & Intervalle où  $u$ et $v$ sont dérivables \\
+\hline
+	$\dfrac{-u^{\prime}}{u^2}$ & $\dfrac{1}{u} + c$ & Intervalle où $u$ est dérivable et ne s'annule pas\\
+\hline
+	$\dfrac{u}{2\sqrt{u}}$ & $\sqrt{u} + c$ & Intervalle où $u$ est dérivable et strictement positive\\
+\hline
+	$u^{\prime}u^r \ (r\in\mathbb{Q} ^*- \{1\})$ & $\dfrac{u^{r + 1}}{r + 1} + c$ & Intervalle où $u$ est dérivable et $u^{r}$ est définie \\
+\hline
+	$\dfrac{u^{\prime}v - uv^{\prime}}{v^2}$ & $\dfrac{u}{v} + c$ & Intervalle où $u$ et $v$ sont dérivables et $v$ ne s'annule pas\\
+\hline	
+\end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 &\\
 \hline
+
 \end{tabular}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
